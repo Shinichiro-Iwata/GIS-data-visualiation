@@ -510,7 +510,7 @@ Geodetic System)に投影を意味．</li>
 ## 6 6     06      Yamagata    1168924 Tohoku   ((140.2802 38.01415, 140.2799 37.9~</code></pre>
 <p><strong>人口分布の可視化</strong></p>
 <ul>
-<li><code>aes(fill)</code>：可視化したい変数（数値データ）を指定．ここでは<code>population</code>を指定．<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></li>
+<li><code>aes(fill)</code>：示したい変数（数値データ）を指定．ここでは<code>population</code>を指定．<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></li>
 </ul>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span> </span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data=</span>Nippon_map, <span class="fu">aes</span>(<span class="at">fill=</span>population))</span></code></pre></div>
