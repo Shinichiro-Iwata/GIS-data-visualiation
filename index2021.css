@@ -8,6 +8,7 @@ body {
 	padding-left:0;
 	padding-right:0;
         background-color:#132a5e;
+	font-family:"Georgia", "Meiryo";
         }
 
 table {
@@ -44,7 +45,6 @@ p.head {
 	margin-left:0.2em;
 	margin-top:0;
 	font-size:3em;
-	font-family:Georgia メイリオ;
 	font-weight:bold;
 	color:#ffffff;
 	margin-bottom:0
@@ -52,7 +52,6 @@ p.head {
 
 p.menu {
 	font-size:0.75em;
-        font-family:Georgia メイリオ; 
         top:100px;
         margin-left:0;
 	margin-right:0;
@@ -88,8 +87,7 @@ p.right {
 	color: #ffffff;
         text-align:center;
         font-size:0.875em;
-        font-family:Georgia メイリオ;
-	margin-right:0;
+        margin-right:0;
 	margin-bottom:1em;
 	margin-top:0.5em;
             margin-left:-0.5em;
@@ -104,8 +102,7 @@ p.right2 {
 	color: #44617b;
         text-align:center;
         font-size:1em;
-        font-family:Georgia メイリオ;
-	margin-right:0;
+        margin-right:0;
 	margin-bottom:-0.1em;
 	margin-top:0.5em;
 	height:1.5em;
@@ -118,7 +115,7 @@ p.right2 {
 .contents {
 	margin-left:1.5em;
 	margin-bottom:3em;
-        font-family:Georgia メイリオ;
+        font-family:"Georgia", "Meiryo";
 	}
 
 .section {
@@ -131,7 +128,7 @@ p.right2 {
 
 h1 {
 	width:100%;
-        font-family:Georgia メイリオ;
+        font-family:"Georgia", "Meiryo";
         font-size:1.15em;
 	color:#ffffff;
 	background-color:#7999e4;
@@ -147,7 +144,7 @@ h1 {
 
 
 h2 {
-	font-family:Georgia メイリオ;
+	font-family:"Georgia", "Meiryo";
         font-size:1.15em;
         color:#1e4294;
 	border-left:solid 18px #1e4294;
@@ -197,7 +194,7 @@ p {
 	line-height:1.5em;
 	color:#555555;
 	margin-top:0em
-        font-family:Georgia メイリオ;
+        font-family:"Georgia", "Meiryo";
         margin-left:0.2em;
         margin-right:1em;
 	}
@@ -216,7 +213,7 @@ p a:hover {
 p.1 {
 	font-size:0.875em;
         color:#555555;
-        font-family:Georgia メイリオ;
+        font-family:"Georgia", "Meiryo";
         margin-top:-1em;
         margin-right:1em;
         margin-left:-1em; 
@@ -239,7 +236,7 @@ p.1 a:hover {
 ul {
         font-size:0.875em;
         color:#555555;
-        font-family:Georgia メイリオ;
+        font-family:"Georgia", "Meiryo";
         margin-top:-0.875em;
         margin-right:1em;
         margin-left:-1em; 
@@ -271,7 +268,7 @@ ul.1 {
 
 address {
 	font-size:0.8em;
-	font-family:Georgia メイリオ;
+	font-family:Georgia;
 	font-style:normal;
 	color:#ffffff;
 	border-top:solid 1.5em #132a5e;
