@@ -85,7 +85,7 @@ p.menu span {
 
 p.right {
 	color: #ffffff;
-	font-family:HiraKakuPro-W3;
+	font-family:Hiragino Sans;
         text-align:center;
         font-size:0.875em;
         margin-right:0;
@@ -128,7 +128,7 @@ p.right2 {
 
 h1 {
 	width:100%;
-        font-family:HiraKakuPro-W3;
+        font-family:Hiragino Sans;
         font-size:1.15em;
 	color:#ffffff;
 	background-color:#7999e4;
@@ -144,7 +144,7 @@ h1 {
 
 
 h2 {
-	font-family:メイリオ;
+	font-family:Hiragino Sans;
         font-size:1.15em;
         color:#1e4294;
 	border-left:solid 18px #1e4294;
@@ -194,7 +194,7 @@ p {
 	line-height:1.5em;
 	color:#555555;
 	margin-top:0em
-        font-family:メイリオ;
+        font-family:Hiragino Sans;
         margin-left:0.2em;
         margin-right:1em;
 	}
@@ -236,7 +236,7 @@ p.1 a:hover {
 ul {
         font-size:0.875em;
         color:#555555;
-        font-family:メイリオ;
+        font-family:Hiragino Sans;
         margin-top:-0.875em;
         margin-right:1em;
         margin-left:-1em; 
