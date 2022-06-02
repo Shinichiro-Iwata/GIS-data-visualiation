@@ -237,8 +237,9 @@ ul {
         font-size:1em;
         color:#555555;
         font-family:Hiragino Sans;
-        color:#555555;
-        margin-left:-1em; 
+        margin-left:-1em;
+        margin-bottom:0.5em; 
+        margin-top:-0.1em; 
         }
 
 ul li{
