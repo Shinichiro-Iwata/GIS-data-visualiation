@@ -89,7 +89,7 @@ p.right {
         text-align:center;
         font-size:0.875em;
         margin-right:0;
-	margin-bottom:1em;
+	margin-bottom:0.2em;
 	margin-top:0.5em;
             margin-left:-0.5em;
 	height:1.5em;
@@ -238,14 +238,14 @@ ul {
         color:#555555;
         font-family:Hiragino Sans;
         color:#555555;
-        padding-top:0.5em;
-        padding-bottom:0.5em;
+        padding-top:0.4em;
+        padding-bottom:0.4em;
         margin-left:-1em; 
         }
 
 ul li{
-        padding-top:0.5em;
-        padding-bottom:0.5em;
+        padding-top:0.4em;
+        padding-bottom:0.4em;
       } 
  
 ul a {
