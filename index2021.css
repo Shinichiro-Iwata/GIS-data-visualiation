@@ -236,13 +236,13 @@ ul {
         color:#555555;
         font-family:Hiragino Sans;
         margin-left:-1em;
-        margin-bottom:0.5em; 
+        margin-bottom:0.6em; 
         margin-top:-0.1em; 
         }
 
 ul li{
-        padding-top:0.2em;
-        padding-bottom:0.2em;
+        padding-top:0.25em;
+        padding-bottom:0.25em;
       } 
  
 ul a {
