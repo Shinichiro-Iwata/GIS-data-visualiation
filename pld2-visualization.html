@@ -480,7 +480,7 @@ pre code {
 <ul>
 <li>そこで，<code>Stores</code>の`<code>SP_ID</code>を<code>character</code>に変換．データ名は<code>Stores</code>のまま．</li>
 </ul></li>
-<li>地図データ（<code>Nippon_map</code>）と店舗数データ（<code>stores</code>）を<code>SP_ID</code>で結合（<code>left_join</code>）し，<code>Stores_map</code>と名付ける．</li>
+<li>地図データ（<code>Nippon_map</code>）と店舗数データ（<code>Stores</code>）を<code>SP_ID</code>で結合（<code>left_join</code>）し，<code>Stores_map</code>と名付ける．</li>
 </ul>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#データ結合のため文字データに変更</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>Stores<span class="ot">&lt;-</span><span class="fu">mutate</span>(Stores, <span class="at">SP_ID=</span><span class="fu">as.character</span>(SP_ID))</span>
