@@ -467,11 +467,11 @@ weighting）を利用．予測地点の地価は予測地点と調査地点の�
 <ul>
 <li>ダウンロードしたZIPファイルは同じフォルダー（ディレクトリ）に納め，ZIPファイルを選択
 &gt;　右クリック　&gt;　すべて展開　&gt;　展開先の選択とファイルの選択　&gt;　展開を実行する．展開後は最初にダウンロードしたZIPファイルを削除．</li>
-<li><code>read_sf()</code>：データ読込． 　 -
-<code>crs=&quot;JGD2011&quot;</code>を指定．crs（Coordinate
+<li><code>read_sf()</code>：データ読込．</li>
+<li><code>crs=&quot;JGD2011&quot;</code>を指定．crs（Coordinate
 ReferenceSystem，座標参照系）を2011年に定められた世界測地系に基づく日本測地系（Japanese
-Geodetic Datum）に投影を意味．この指定がないとうまく行かなかった． 　 -
-パイプ演算子（<code>%&gt;%</code>）を使い，富山県のデータから富山市のデータを抜き出し．</li>
+Geodetic Datum）に投影を意味．この指定がないとうまく行かなかった．</li>
+<li>パイプ演算子（<code>%&gt;%</code>）を使い，富山県のデータから富山市のデータを抜き出し．</li>
 </ul></li>
 </ul>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#富山県の地図</span></span>
@@ -655,9 +655,9 @@ Geodetic Datum）に投影を意味．この指定がないとうまく行かな
 <div id="完成図" class="section level2">
 <h2>完成図</h2>
 <p><strong>CRSの変更</strong></p>
-<p>概ね，上記の地図により空間内挿による地価分布を示せた．ここからは，地図上に鉄道を示したり，<code>CRS</code>を変更したりする．</p>
+<p>概ね，上記の地図により空間内挿による地価分布を示せた．ここからは，地図上に鉄道を示したり，<code>CRS</code>を変更したりする（好みの問題）．</p>
 <ul>
-<li>今回は空間内挿のために<code>CRS</code>を<code>JGD2011</code>に指示．これを，<code>WGS84</code>に変更する．</li>
+<li>今回は空間内挿のために<code>CRS</code>を<code>JGD2011</code>に指示．これを<code>WGS84</code>に変更する．</li>
 </ul>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>proj<span class="ot">&lt;-</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0&quot;</span></span>
@@ -666,7 +666,7 @@ Geodetic Datum）に投影を意味．この指定がないとうまく行かな
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(Toyama_intersec85)<span class="ot">=</span>proj</span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(Toyama_intersec6)<span class="ot">=</span>proj</span></code></pre></div>
 <p><strong>行政区域の地図</strong></p>
-<p>富山県と富山市の行政区域の地図を改めてオプション（<code>crs=&quot;JSD2011&quot;</code>）なしで読み込み．別名を付ける（それぞれ，<code>Toyama_map1</code>と<code>Toyama_shi_map1</code>と名付ける）．</p>
+<p>富山県と富山市の行政区域の地図を改めてオプション（<code>crs=&quot;JSD2011&quot;</code>）なしで読み込み．別名を付ける（それぞれ<code>Toyama_map1</code>と<code>Toyama_shi_map1</code>と名付ける）．</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#富山県の地図（オプションなし）</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>Toyama_map1<span class="ot">&lt;-</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_sf</span>(<span class="st">&quot;N03-20210101_16_GML/N03-20210101_16_GML/N03-21_16_210101.shp&quot;</span>)</span>
