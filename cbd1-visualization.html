@@ -11,7 +11,6 @@
 
 <meta name="author" content="岩田真一郎（神奈川大学経済学部）" />
 
-<meta name="date" content="2022-06-30" />
 
 <title>小地域統計による人口変化の可視化</title>
 
@@ -432,7 +431,7 @@ pre code {
 <h1 class="title toc-ignore">小地域統計による人口変化の可視化</h1>
 <h3 class="subtitle">小田原市の例</h3>
 <h4 class="author"><a href="https://shinichiro-iwata.github.io/">岩田真一郎</a>（<a href="https://www.econ.kanagawa-u.ac.jp/">神奈川大学経済学部</a>）</h4>
-<h4 class="date">2022-06-30</h4>
+<h4 class="date">2022-06-30作成，2022-07-06改定</h4>
 
 </div>
 
@@ -467,10 +466,13 @@ pre code {
 <li><code>Kanagawa_pop#</code>と名付ける．</li>
 <li><code>header=TRUE</code>は列名が含まれていることを意味する．仮に列名がなければ<code>FALSE</code>．ダウンロードしたデータは2列にわたって列名がある．</li>
 <li><code>sep=&quot;,&quot;</code>はデータがカンマで区切られていることを意味する．<code>skip=1</code>は1番最初の行を削除することを意味する．後ほど，1行目にあった情報を再度加える．</li>
+<li><strong>文字化け</strong>問題：文字コードの関係で，テキストファイルが適切に読み込めない場合がある（不正なマルチバイト文字
+．．．）．この場合は、<code>fileEncoding=&quot;CP932&quot;</code>のオプションを加える（例えば<code>skip=1</code>の後に）．</li>
+<li>その他、文字化け問題については<a href="https://shohei-doi.github.io/quant_polisci/encoding-r.html">Rのエンコーディング問題</a>を参照</li>
 </ul></li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#2020年</span></span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#2020年（文字化けする場合はオプションを加える）</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>Kanagawa_pop20<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;tblT001081C14/tblT001081C14.txt&quot;</span>,</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>, <span class="at">skip=</span><span class="dv">1</span>)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -480,7 +482,7 @@ pre code {
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(Kanagawa_pop20)[<span class="dv">3</span>]<span class="ot">&lt;-</span><span class="st">&quot;CITYNAME&quot;</span>    </span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(Kanagawa_pop20)[<span class="dv">4</span>]<span class="ot">&lt;-</span><span class="st">&quot;NAME&quot;</span></span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#2010年</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#2010年（文字化けする場合はオプションを加える）</span></span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>Kanagawa_pop10<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;tblT000572C14/tblT000572C14.txt&quot;</span>,</span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>                           <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>, <span class="at">skip=</span><span class="dv">1</span>)</span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
@@ -522,7 +524,7 @@ pre code {
 <ul>
 <li><strong>注意</strong>：境界データの<code>KEY_CODE</code>が<code>character</code>（文字データ），統計データは<code>integer</code>（数データ）のため結合できない．
 <ul>
-<li>そこで，統計データ（<code>Odawara_shi_pop_#</code>）の<code>KEY_CODE</code>を<code>character</code>に変換（<code>mutate</code>）する．再<code>Odawara_shi_pop_#</code>と名付ける．</li>
+<li>そこで，統計データ（<code>Odawara_shi_pop_#</code>）の<code>KEY_CODE</code>を<code>character</code>に変換（<code>mutate</code>）する．再度，<code>Odawara_shi_pop_#</code>と名付ける．</li>
 </ul></li>
 <li><code>KEY_CODE</code>で結合し，<code>Odawara_shi#</code>と名付ける．</li>
 </ul>
