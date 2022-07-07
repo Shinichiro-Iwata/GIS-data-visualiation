@@ -466,14 +466,19 @@ pre code {
 <li>改めて，073a.txtと名前を付けて保存．ただし，保存の際に文字コードを<code>UTF-8</code>に変更．</li>
 <li><code>read.table()</code>でデータ読込．文字化け防止のため，<code>fileEncoding=&quot;utf8&quot;</code>を指示．</li>
 <li><code>read_sf</code>：データ読込．<code>pedestrian_traffic</code>と名付ける．</li>
-<li>3列目が緯度（<code>y</code>），4列目が経度（<code>x</code>）であることを指示．</li>
+<li>3列目（<code>V3</code>）を緯度（<code>y</code>），4列目（<code>V4</code>）を経度（<code>x</code>）に名前変更（<code>rename</code>）を指示．</li>
 </ul></li>
 </ul>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pedestrian_traffic<span class="ot">&lt;-</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read.table</span>(<span class="st">&quot;0073a.txt&quot;</span>, <span class="at">fileEncoding=</span><span class="st">&quot;utf8&quot;</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pedestrian_traffic)[<span class="dv">3</span>]<span class="ot">&lt;-</span><span class="st">&quot;y&quot;</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pedestrian_traffic)[<span class="dv">4</span>]<span class="ot">&lt;-</span><span class="st">&quot;x&quot;</span></span></code></pre></div>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>pedestrian_traffic <span class="sc">%&gt;%</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">y=</span>V3) <span class="ot">-&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  pedestrian_traffic</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>pedestrian_traffic <span class="sc">%&gt;%</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">x=</span>V4) <span class="ot">-&gt;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  pedestrian_traffic</span></code></pre></div>
 <p><strong>データの加工1</strong></p>
 <ul>
 <li>平日及び休日の平均歩行者数を計算する．歩行者数は男女で分かれている．
