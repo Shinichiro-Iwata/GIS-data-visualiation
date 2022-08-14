@@ -431,7 +431,7 @@ pre code {
 <h1 class="title toc-ignore">土地利用細分メッシュデータによる土地利用状況の可視化</h1>
 <h3 class="subtitle">佐賀市，弘前市の例</h3>
 <h4 class="author"><a href="https://shinichiro-iwata.github.io/">岩田真一郎</a>（<a href="https://www.econ.kanagawa-u.ac.jp/">神奈川大学経済学部</a>）</h4>
-<h4 class="date">2022-08-12作成，2022-08-13改訂</h4>
+<h4 class="date">2022-08-12作成，2022-08-14改訂</h4>
 
 </div>
 
@@ -452,14 +452,13 @@ pre code {
 <p><strong>シェープファイルのダウンロード</strong></p>
 <p>最初に，佐賀市の行政区域をダウンロード．</p>
 <ul>
-<li><p><a href="https://nlftp.mlit.go.jp/ksj/">国土数値情報ダウンロードサービス</a>　&gt;　行政区域（ポリゴン）　&gt;　佐賀県　&gt;　世界測地系　令和4年</p></li>
-<li><p><a href="https://nlftp.mlit.go.jp/ksj/">国土数値情報ダウンロードサービス</a>　&gt;　地価公示（ポイント）　&gt;　佐賀県　&gt;　「佐賀県」データのダウンロード　&gt;　世界測地系　令和4年</p>
+<li><p><a href="https://nlftp.mlit.go.jp/ksj/">国土数値情報ダウンロードサービス</a>　&gt;　行政区域（ポリゴン）　&gt;　佐賀県　&gt;　世界測地系　令和4年</p>
 <ul>
 <li>ダウンロードしたZIPファイルは同じフォルダ（ディレクトリ）に納め，ZIPファイルを選択
 &gt;　右クリック　&gt;　すべて展開　&gt;　展開先の選択とファイルの選択　&gt;　展開を実行する．展開後は最初にダウンロードしたZIPファイルを削除．</li>
-<li>シェープファイルの読込（<code>read_sf()</code>）：行政区域を<code>Saga_map</code>，公示価格を<code>Saga_lp1</code>，調査価格を<code>Saga_lp2</code>と名付ける．
+<li>シェープファイルの読込（<code>read_sf()</code>）：行政区域を<code>Saga_map</code>と名付ける．
 <ul>
-<li>それぞれのファイルから佐賀市を抜き出す（<code>filter()</code>）．</li>
+<li><code>Saga_map</code>から佐賀市を抜き出す（<code>filter()</code>）．</li>
 </ul></li>
 </ul></li>
 </ul>
@@ -506,12 +505,12 @@ pre code {
 ## 6 4930010005 0200     20201104 ((130.1313 32.66667, 130.1313 32.6675, 130.1325 ~</code></pre>
 <p><strong>土地利用種別</strong></p>
 <p>土地利用種別を地図上に色分けする．ここでは，次のように8分類に指定（色は好み）．</p>
-<div id="yoezwdlkwz" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="wglkqmjsst" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#yoezwdlkwz .gt_table {
+#wglkqmjsst .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -536,7 +535,7 @@ pre code {
   border-left-color: #D3D3D3;
 }
 
-#yoezwdlkwz .gt_heading {
+#wglkqmjsst .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -548,7 +547,7 @@ pre code {
   border-right-color: #D3D3D3;
 }
 
-#yoezwdlkwz .gt_title {
+#wglkqmjsst .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -560,7 +559,7 @@ pre code {
   border-bottom-width: 0;
 }
 
-#yoezwdlkwz .gt_subtitle {
+#wglkqmjsst .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -572,13 +571,13 @@ pre code {
   border-top-width: 0;
 }
 
-#yoezwdlkwz .gt_bottom_border {
+#wglkqmjsst .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#yoezwdlkwz .gt_col_headings {
+#wglkqmjsst .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -593,7 +592,7 @@ pre code {
   border-right-color: #D3D3D3;
 }
 
-#yoezwdlkwz .gt_col_heading {
+#wglkqmjsst .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -613,7 +612,7 @@ pre code {
   overflow-x: hidden;
 }
 
-#yoezwdlkwz .gt_column_spanner_outer {
+#wglkqmjsst .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -625,15 +624,15 @@ pre code {
   padding-right: 4px;
 }
 
-#yoezwdlkwz .gt_column_spanner_outer:first-child {
+#wglkqmjsst .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#yoezwdlkwz .gt_column_spanner_outer:last-child {
+#wglkqmjsst .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#yoezwdlkwz .gt_column_spanner {
+#wglkqmjsst .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -645,7 +644,7 @@ pre code {
   width: 100%;
 }
 
-#yoezwdlkwz .gt_group_heading {
+#wglkqmjsst .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -670,7 +669,7 @@ pre code {
   vertical-align: middle;
 }
 
-#yoezwdlkwz .gt_empty_group_heading {
+#wglkqmjsst .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -685,15 +684,15 @@ pre code {
   vertical-align: middle;
 }
 
-#yoezwdlkwz .gt_from_md > :first-child {
+#wglkqmjsst .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#yoezwdlkwz .gt_from_md > :last-child {
+#wglkqmjsst .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#yoezwdlkwz .gt_row {
+#wglkqmjsst .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -712,7 +711,7 @@ pre code {
   overflow-x: hidden;
 }
 
-#yoezwdlkwz .gt_stub {
+#wglkqmjsst .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -725,7 +724,7 @@ pre code {
   padding-right: 5px;
 }
 
-#yoezwdlkwz .gt_stub_row_group {
+#wglkqmjsst .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -739,11 +738,11 @@ pre code {
   vertical-align: top;
 }
 
-#yoezwdlkwz .gt_row_group_first td {
+#wglkqmjsst .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#yoezwdlkwz .gt_summary_row {
+#wglkqmjsst .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -753,16 +752,16 @@ pre code {
   padding-right: 5px;
 }
 
-#yoezwdlkwz .gt_first_summary_row {
+#wglkqmjsst .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#yoezwdlkwz .gt_first_summary_row.thick {
+#wglkqmjsst .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#yoezwdlkwz .gt_last_summary_row {
+#wglkqmjsst .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -772,7 +771,7 @@ pre code {
   border-bottom-color: #D3D3D3;
 }
 
-#yoezwdlkwz .gt_grand_summary_row {
+#wglkqmjsst .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -782,7 +781,7 @@ pre code {
   padding-right: 5px;
 }
 
-#yoezwdlkwz .gt_first_grand_summary_row {
+#wglkqmjsst .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -792,11 +791,11 @@ pre code {
   border-top-color: #D3D3D3;
 }
 
-#yoezwdlkwz .gt_striped {
+#wglkqmjsst .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#yoezwdlkwz .gt_table_body {
+#wglkqmjsst .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -805,7 +804,7 @@ pre code {
   border-bottom-color: #D3D3D3;
 }
 
-#yoezwdlkwz .gt_footnotes {
+#wglkqmjsst .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -819,7 +818,7 @@ pre code {
   border-right-color: #D3D3D3;
 }
 
-#yoezwdlkwz .gt_footnote {
+#wglkqmjsst .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -828,7 +827,7 @@ pre code {
   padding-right: 5px;
 }
 
-#yoezwdlkwz .gt_sourcenotes {
+#wglkqmjsst .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -842,7 +841,7 @@ pre code {
   border-right-color: #D3D3D3;
 }
 
-#yoezwdlkwz .gt_sourcenote {
+#wglkqmjsst .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -850,36 +849,36 @@ pre code {
   padding-right: 5px;
 }
 
-#yoezwdlkwz .gt_left {
+#wglkqmjsst .gt_left {
   text-align: left;
 }
 
-#yoezwdlkwz .gt_center {
+#wglkqmjsst .gt_center {
   text-align: center;
 }
 
-#yoezwdlkwz .gt_right {
+#wglkqmjsst .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#yoezwdlkwz .gt_font_normal {
+#wglkqmjsst .gt_font_normal {
   font-weight: normal;
 }
 
-#yoezwdlkwz .gt_font_bold {
+#wglkqmjsst .gt_font_bold {
   font-weight: bold;
 }
 
-#yoezwdlkwz .gt_font_italic {
+#wglkqmjsst .gt_font_italic {
   font-style: italic;
 }
 
-#yoezwdlkwz .gt_super {
+#wglkqmjsst .gt_super {
   font-size: 65%;
 }
 
-#yoezwdlkwz .gt_two_val_uncert {
+#wglkqmjsst .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -888,31 +887,31 @@ pre code {
   margin-left: 0.1em;
 }
 
-#yoezwdlkwz .gt_footnote_marks {
+#wglkqmjsst .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#yoezwdlkwz .gt_asterisk {
+#wglkqmjsst .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#yoezwdlkwz .gt_slash_mark {
+#wglkqmjsst .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#yoezwdlkwz .gt_fraction_numerator {
+#wglkqmjsst .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#yoezwdlkwz .gt_fraction_denominator {
+#wglkqmjsst .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
@@ -1012,7 +1011,7 @@ pre code {
 ## 5 4930010004 0200     20201104 ((130.13 32.66667, 130.13 32.6675, ~ 田・その他~ 
 ## 6 4930010005 0200     20201104 ((130.1313 32.66667, 130.1313 32.66~ 田・その他~</code></pre>
 <p><strong>色の指定</strong></p>
-<p>色については上の表に合わせて，次のように<code>my_color</code>作成</p>
+<p>色については上の表に合わせて，次のように<code>my_color</code>作成．</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>my_color<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;#DEF5E5FF&quot;</span>,</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;#ADE3C0FF&quot;</span>,</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;#6CD3ADFF&quot;</span>,</span>
