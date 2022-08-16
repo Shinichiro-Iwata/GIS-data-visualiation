@@ -1,0 +1,142 @@
+---
+title: "自作データの可視化"
+subtitle: "店舗数の例"
+author: "[岩田真一郎](https://shinichiro-iwata.github.io/)（[神奈川大学経済学部](https://www.econ.kanagawa-u.ac.jp/)）"
+date: "2022-06-04作成，`r Sys.Date()`改訂"
+output: 
+  html_document:
+    highlight: "pygments"
+    df_print: paged
+---
+
+# 目的
+`NipponMap`に他のウェブサイトの情報から作成した都道府県別データを加え，可視化．今回はユニクロとサッカーショップKAMOの店舗数を表現する．
+
+ライブラリ：`sf`，`tidyverse`，`Nipponmap`
+```{r library, warning=FALSE, message=FALSE}
+library(sf)
+library(tidyverse)
+library(NipponMap)
+```
+
+# 店舗数データの作成
+
+**シェープファイル**
+
+- これまでの例（[1](https://shinichiro-iwata.github.io/GIS-data-visualization/prefecuture-level-data-visualization.html)，[1.1](https://shinichiro-iwata.github.io/GIS-data-visualization/pld1-visualization.html)を参照）のように`NipponMap`を読込．
+```{r}
+Nippon_map<-read_sf("shapes/jpn.shp", 
+                     crs="WGS84")
+```
+
+**ユニクロとサッカーショップKAMOの店舗数データの作成**
+
+- [ユニクロ](https://map.uniqlo.com/jp/ja/)（アクセス日：2022-04-15）と[サッカーショップKAMO](https://www.sskamo.co.jp)（アクセス日：2022-04-15）のウェブサイトから都道府県別の舗数を調べ，都道府県の順番に気をつけながらデータ（拡張子を`.csv`とする）を**「自分で」**作成する．Excelで保存する場合は，CSV（コンマ区切り）（*.csv）を選択． ここでは，`stores.csv`と名付ける．
+  - `stores.csv`を作業ファイルに保存．
+  - `read.csv`：CSVファイルの読込．`Stores`と名付ける．
+```{r} 
+#csvファイルの読込
+Stores<-read.csv("stores.csv")
+
+#上から6行のデータの中身
+Stores %>% 
+  head()
+```
+
+**データの加工及び結合**
+
+- `Nippon_map`の`SP_ID`は`<chr>`（character：文字列），`Elderly_pop`の`SP_ID`は`<int>`（integer：数値）のため結合できない．
+  - そこで，`Stores`の``SP_ID`を文字列に変換．データ名は`Stores`のまま．
+
+- 地図データ（`Nippon_map`）と店舗数データ（`Stores`）を`SP_ID`で結合（`left_join`）し，`Stores_map`と名付ける．
+```{r}
+#データ結合のため文字列に変更
+Stores %>% 
+  mutate(SP_ID=as.character(SP_ID)) ->
+  Stores
+
+#地図データと店舗数データの結合
+Stores_map<-
+  left_join(Nippon_map, Stores, 
+            by=c("SP_ID"))
+```
+
+# 店舗数の可視化
+**ユニクロ店舗数の完成図**
+
+- 今回は色分けに[`viridis`](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html)を利用．[^foot1]
+  - `option="G"`は`option="mako"`に等しい．
+  
+[^foot1]:必要に応じてパッケージをダウンロード（`install.packages("viridis")`し，`library(viridis)`で呼び出す． 
+
+- `labs()`内に出典を表記（`caption`）．
+
+```{r}
+ggplot()+ 
+  geom_sf(data=Stores_map, 
+          aes(fill=uniqulo))+
+  scale_fill_viridis_c(option="G", direction=-1)+
+  labs(fill="店舗数",
+       caption="NipponMap 
+       出典：UNIQLO店舗検索")+
+  ggtitle("都道府県別ユニクロ店舗数")+
+  theme_bw()
+```
+
+**サッカーショップKAMO店舗数の完成図**
+
+```{r}
+ggplot()+ 
+  geom_sf(data=Stores_map, 
+          aes(fill=kamo))+
+  scale_fill_viridis_c(option="G", direction=-1)+
+  labs(fill="店舗数", 
+       caption="NipponMap 
+       出典：サッカーショップKAMO店舗一覧")+
+  ggtitle("都道府県別サッカーショップKAMO店舗数")+
+  theme_bw()
+```
+
+# 応用
+## 色のマニュアル指定
+
+サッカーショップは扱っている商品に偏り（サッカー商品のみ）があるため，人口の多い都道府県のみに立地する傾向．多くの都道府県において店舗がゼロ．
+
+- そこで，店舗数ゼロの都道府県を白色で埋める．
+  - その他の階級の色もマニュアル指定．
+
+- これまで使用してきた`mako`を利用するため，カラーコードを調べる．
+
+```{r, message=FALSE}
+#カラーコードを調べるため．
+library(scales)
+
+#カラーコードの表示（4色）．
+show_col(viridis_pal(option="G")(4))
+```
+
+**完成図**
+
+- 色分けに利用する色を自分で作成し，`my_colors`と名付ける．右の色が最小値を反映し，左の色が最大値を反映する．
+  - 白色（`white`）以外は上のカラーコードを利用． 
+  - `scale_fill_gradientn()`：マニュアルで色を決めたい場合に利用．色分け（`colors`）に`my_colors`を適用するように指示．
+
+```{r}
+#色のマニュアル指定
+my_colors<-
+  c("white", "#38AAACFF", "#40498EFF", "#0B0405FF")
+
+ggplot()+ 
+  geom_sf(data=Stores_map, 
+          aes(fill=kamo)) +
+  scale_fill_gradientn(colors=my_colors)+
+  labs(fill="店舗数",
+       caption="NipponMap 
+       出典：サッカーショップKAMO店舗一覧")+
+  ggtitle("都道府県別サッカーショップKAMO店舗数")+
+  theme_bw()
+```
+
+**Rによる地理空間データの可視化**
+
+- チュートリアル[ホーム](https://shinichiro-iwata.github.io/geospatial-data-visualization/)
