@@ -648,7 +648,7 @@ pre code {
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#移動後の沖縄県を加えた日本地図</span></span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>Nippon_map2<span class="ot">&lt;-</span></span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(Nippon_map1, Okinawa_map1)</span></code></pre></div>
-<p><strong>完成図</strong></p>
+<p><strong>完成地図</strong></p>
 <p>沖縄県の位置が移動した地図の可視化．</p>
 <ul>
 <li>位置を区切る線を引く（<code>annotate()</code>）．
@@ -731,7 +731,7 @@ pre code {
 <span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>Nippon_map3 <span class="ot">&lt;-</span></span>
 <span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(Hokkaido_map, Nippon_map3) <span class="sc">%&gt;%</span> </span>
 <span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(Nippon_map3, Okinawa_map2)</span></code></pre></div>
-<p><strong>完成図</strong></p>
+<p><strong>完成地図</strong></p>
 <p>作成した<code>Nippon_map3</code>に人口分布を可視化．</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span> </span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data=</span>Nippon_map3, <span class="fu">aes</span>(<span class="at">fill=</span>population<span class="sc">/</span><span class="dv">10000</span>))<span class="sc">+</span></span>
@@ -768,12 +768,12 @@ pre code {
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ジオメトリの直接変更</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>Nippon_map<span class="sc">$</span>geometry[<span class="dv">1</span>]<span class="ot">=</span>Nippon_map<span class="sc">$</span>geometry[<span class="dv">1</span>]<span class="sc">+</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">11</span>, <span class="sc">-</span><span class="dv">4</span>) </span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>Nippon_map<span class="sc">$</span>geometry[<span class="dv">47</span>]<span class="ot">=</span>Nippon_map<span class="sc">$</span>geometry[<span class="dv">47</span>]<span class="sc">+</span><span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">5</span>) </span></code></pre></div>
-<p><strong>完成図</strong></p>
+<p><strong>完成地図</strong></p>
 <p>地図は<code>Nippon_map</code>のまま（<code>data=Nippon_map</code>）．</p>
 <ul>
 <li>コードが圧倒的に<strong>少なくて</strong>済む．
 <ul>
-<li>上と同じ図が完成（色をあえて変更，デフォルトのviridis）．</li>
+<li>上と同じ地図が完成（色をあえて変更，デフォルトのviridis）．</li>
 </ul></li>
 </ul>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span> </span>
