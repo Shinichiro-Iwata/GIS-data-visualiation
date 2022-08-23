@@ -431,7 +431,7 @@ pre code {
 <h1 class="title toc-ignore">ジオメトリの移動による日本地図の可視化</h1>
 <h3 class="subtitle">沖縄県，北海道の例</h3>
 <h4 class="author"><a href="https://shinichiro-iwata.github.io/">岩田真一郎</a>（<a href="https://www.econ.kanagawa-u.ac.jp/">神奈川大学経済学部</a>）</h4>
-<h4 class="date">2022-08-17作成，2022-08-19改訂</h4>
+<h4 class="date">2022-08-17作成，2022-08-23改訂</h4>
 
 </div>
 
@@ -441,7 +441,12 @@ pre code {
 <p>日本地図を作成する際に，北海道や沖縄県の位置を変更して表現する場合がある．位置関係は不正確になるが，地図をコンパクトにまとめることができる．一番下にRコードの圧倒的に<strong>少ない</strong>方法を示す．</p>
 <ul>
 <li>ここでは，<code>NipponMap</code>の沖縄県（ジオメトリはポリゴン）の位置を移動して表現．次に，沖縄県の位置の移動に加えて北海道の位置も移動．
-<strong>注意</strong>：ただし，中止しなければいけないのは，移動はコピー＆ペーストによる移動ではなく，ジオメトリ（ここではポリゴン）の緯度経度を変更による移動のため，<strong>沖縄県の形状が変化</strong>．</li>
+<ul>
+<li><strong>注意</strong>：ただし，注意しなければならないのは，移動はコピー＆ペーストによる移動ではなく，ジオメトリ（ここではポリゴン）の緯度経度の変更による移動のため，<strong>沖縄県の形状が変化</strong>．
+<ul>
+<li>画像にして，貼り付ける方法は<a href="https://shinichiro-iwata.github.io/geospatial-data-visualization/DID-pop-visualization.html">人口集中地区データによる人口分布の可視化</a>を参照．</li>
+</ul></li>
+</ul></li>
 <li>最後にRコードのより<strong>少ない</strong>（簡易な）方法も示す．</li>
 </ul>
 <p>ライブラリ：<code>sf</code>，<code>tidyverse</code>，<code>Nipponmap</code></p>
@@ -658,7 +663,7 @@ pre code {
 <ul>
 <li>位置を区切る線を引く（<code>annotate()</code>）．
 <ul>
-<li>線の出発点（座標）と終点を示し，線の色（<code>color</code>）や太さ（<code>sixze</code>）を指定．</li>
+<li>線の出発点（座標）と終点を示し，線の色（<code>color</code>）や太さ（<code>size</code>）を指定．</li>
 <li><code>labs(x=&quot;&quot;, y=&quot;&quot;)</code>を指示しない場合，横軸に<code>x</code>，縦軸に<code>y</code>が表現される（任意）．</li>
 </ul></li>
 </ul>
