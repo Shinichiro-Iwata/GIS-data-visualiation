@@ -1702,7 +1702,7 @@ pre code {
 <h1 class="title toc-ignore">市区町村データによる大学・大学院卒者割合の可視化</h1>
 <h3 class="subtitle">1都3県の例</h3>
 <h4 class="author"><a href="https://shinichiro-iwata.github.io/">岩田真一郎</a>（<a href="https://www.econ.kanagawa-u.ac.jp/">神奈川大学経済学部</a>）</h4>
-<h4 class="date">2022-11-21作成，2022-11-23改定</h4>
+<h4 class="date">2022-11-21作成，2022-11-24改定</h4>
 
 </div>
 
@@ -1791,7 +1791,7 @@ pre code {
 if_else(条件式, 1, 0)</code></pre>
 <p>政令指定都市（さいたま市，千葉市，横浜市，川崎市，相模原市）は区レベルで表現したいため，取り除きたい．</p>
 <ul>
-<li><code>subset()</code>を用いてデータ（edu_back）の一部のデータを利用．<code>subset()</code>内に利用するデータの条件を指示．<code>!=</code>は否定等号（左辺が右辺と等しくない）．すなわち，政令指定都市，離島の市町村ではない市区町村を利用という条件．</li>
+<li><code>filter()</code>を用いてデータ（edu_back）の一部のデータを選抜．<code>filter()</code>内に利用するデータの条件を指示．<code>!=</code>は否定等号（左辺が右辺と等しくない）．すなわち，政令指定都市，離島の市町村ではない市区町村を利用するという条件．</li>
 </ul>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#離島市町村ダミーを作成</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>edu_back <span class="sc">%&gt;%</span></span>
@@ -1800,9 +1800,9 @@ if_else(条件式, 1, 0)</code></pre>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                  <span class="dv">1</span>, <span class="dv">0</span>)) <span class="ot">-&gt;</span></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  edu_back</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#離島市町村と政令都市を除いたデータの作成</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#離島市町村と政令都市を除いたデータの選抜</span></span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>edu_back <span class="sc">%&gt;%</span> </span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(city_code<span class="sc">!=</span><span class="dv">11100</span> <span class="sc">&amp;</span> city_code<span class="sc">!=</span><span class="dv">12100</span> <span class="sc">&amp;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(city_code<span class="sc">!=</span><span class="dv">11100</span> <span class="sc">&amp;</span> city_code<span class="sc">!=</span><span class="dv">12100</span> <span class="sc">&amp;</span></span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>           city_code<span class="sc">!=</span><span class="dv">14100</span> <span class="sc">&amp;</span> city_code<span class="sc">!=</span><span class="dv">14130</span> <span class="sc">&amp;</span></span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>           city_code<span class="sc">!=</span><span class="dv">14150</span> <span class="sc">&amp;</span> island<span class="sc">!=</span><span class="dv">1</span>)<span class="ot">-&gt;</span></span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  edu_back2</span></code></pre></div>
