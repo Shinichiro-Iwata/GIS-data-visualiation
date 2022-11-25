@@ -1702,7 +1702,7 @@ pre code {
 <h1 class="title toc-ignore">市区町村データによる大学・大学院卒者割合の可視化</h1>
 <h3 class="subtitle">1都3県の例</h3>
 <h4 class="author"><a href="https://shinichiro-iwata.github.io/">岩田真一郎</a>（<a href="https://www.econ.kanagawa-u.ac.jp/">神奈川大学経済学部</a>）</h4>
-<h4 class="date">2022-11-21作成，2022-11-24改定</h4>
+<h4 class="date">2022-11-21作成，2022-11-25改定</h4>
 
 </div>
 
@@ -1723,7 +1723,10 @@ pre code {
 <li>地域区分　&gt;　都道府県　&gt;　埼玉県，千葉県，東京都，神奈川県</li>
 <li>絞り込み　&gt;　デフォルトのまま（チェックのとおり）　　</li>
 </ul></li>
-<li>右の「選択中地域」欄に全て選択（48地域）されていることを確認．今回は全国は必要ないため，<code>0000_全国</code>を選択して，「地域を削除」をクリック．これで「選択中地域」欄は都道府県（47地域）になる．「確定」をクリック．
+<li>「地域区分」で埼玉県を選択すると「地域候補」欄に埼玉県の市区町村が表示される．「全て選択する」をクリックすると，右の「選択中地域」欄に埼玉県の市区町村が表示される．</li>
+<li>続いて「地域区分」で千葉県を選択し，同様の作業を繰り返す．「選択中地域」欄には埼玉県の市区町村の後に，千葉県の市区町村が示される．</li>
+<li>東京都，神奈川県で同様の作業を繰り返す</li>
+<li>これで「選択中地域」欄に　埼玉県，千葉県，東京都，神奈川県の市区町村が選ばれる．「確定」をクリック．
 <ul>
 <li>絞り込み　&gt;　データの種類：<code>基礎データ</code>　&gt;　分野：<code>#E  教育</code></li>
 <li>項目候補　&gt;　<code>#E9101　最終学歴人口（卒業者総数）（人）</code>，<code>#E9106　最終学歴人口（大学・大学院）（人）</code>　&gt;　確定
@@ -1791,7 +1794,7 @@ pre code {
 if_else(条件式, 1, 0)</code></pre>
 <p>政令指定都市（さいたま市，千葉市，横浜市，川崎市，相模原市）は区レベルで表現したいため，取り除きたい．</p>
 <ul>
-<li><code>filter()</code>を用いてデータ（edu_back）の一部のデータを選抜．<code>filter()</code>内に利用するデータの条件を指示．<code>!=</code>は否定等号（左辺が右辺と等しくない）．すなわち，政令指定都市，離島の市町村ではない市区町村を利用するという条件．</li>
+<li><code>filter()</code>を用いてデータ（<code>edu_back</code>）の一部を選抜．<code>filter()</code>内に利用するデータの条件を指示．<code>!=</code>は否定等号（左辺が右辺と等しくない）．すなわち，政令指定都市，離島の市町村ではない市区町村を利用するという条件．</li>
 </ul>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#離島市町村ダミーを作成</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>edu_back <span class="sc">%&gt;%</span></span>
