@@ -11,8 +11,15 @@
  <url>
 <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/pld1-visualization.html</loc>
 <priority>0.8</priority>
-</url>
+  </url>
   <url>
+<loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/pld2-visualization.html</loc>
+<priority>0.8</priority>
+</url>
+ <url>
+<loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/logarithmic-transformation-visualization.html</loc>
+<priority>0.8</priority>
+</url>
  <url>
 <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/municipality-data-visualization.html</loc>
 <priority>0.8</priority>
