@@ -26,7 +26,7 @@
       <A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/economic-census-visualization.html"><font face="Georgia">OpenStreetMap</font>を背景にした情報通信業事業所数の可視化</A>
 　　　　<BR>&emsp; <font face="Georgia">2.3</font>　
       <A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/land-use-subdivision-mesh-visualization.html">土地利用細分メッシュデータによる土地利用状況の可視化</A>
-      <BR>&emsp; <font  face="Georgia">2.4</font>
+      <BR>&emsp; <font  face="Georgia">2.4</font>　
         <A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/shop-periphery-visualization.html">商圏内の地域メッシュデータの可視化</A></ul>
 <ul><font face="Georgia">3.</font>　<A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/census-block-data-visualization.html">
   小地域統計による人口の可視化</A>
