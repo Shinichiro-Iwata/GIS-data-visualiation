@@ -47,14 +47,23 @@
 <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/census-block-data-visualization.html</loc>
 <priority>0.8</priority>
 </url>
+<!-- 4 -->
+<url>
+<loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/point-data-visualization.html</loc>
+<priority>0.8</priority>
+</url>
+  <url>
+    <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/crime-data-visualization.html</loc>
+    <priority>0.8</priority>
+ </url>
 <!-- 5 -->
 <url>
    <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/municipality-data-visualization.html</loc>
    <priority>0.8</priority>
 </url>
-<url>
-   <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/street-shop-visualization.html</loc>
-   <priority>0.8</priority>
-</url>
+  <url>
+    <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/street-shop-visualization.html</loc>
+    <priority>0.8</priority>
+　</url>
 </urlset>
 
