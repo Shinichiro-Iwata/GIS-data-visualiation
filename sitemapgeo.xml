@@ -69,5 +69,10 @@
     <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/street-shop-visualization.html</loc>
     <priority>0.8</priority>
 　</url>
+<!-- 7  -->
+<url>
+<loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/rnaturalearth-visualization.html</loc>
+<priority>0.8</priority>
+</url>
 </urlset>
 
