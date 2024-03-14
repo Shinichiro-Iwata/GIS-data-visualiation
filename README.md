@@ -37,7 +37,7 @@
   <ul><font face="Georgia">4.</font>　<A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/point-data-visualization.html">
        ポイントデータによる地価の可視化</A>
   <BR>&emsp; <font face="Georgia">4.1</font>　
-    <A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/bubble-map-visualization.html">バブル・マップによる地価の可視化</a>
+    <A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/bubble-map-visualization.html">バブルマップによる地価の可視化</a>
     <BR>&emsp; <font face="Georgia">4.2</font>　
       <A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/compactcity-network-visualization.html">立地適正化計画区域内の地価の可視化</a>
       <BR>&emsp; <font face="Georgia">4.3</font>　
@@ -64,9 +64,9 @@
   世界銀行のオープンデータによる平均寿命・出生率の可視化</A></ul>
 <ul><font face="Georgia">8.</font>　<A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/interactive-map-visualization.html">
 インタラクティブマップによる地理空間データの可視化</A>
-   <BR>&emsp; <font face="Georgia">8.1</font>　<A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/feature-periphery-visualization.html"> 
-地物周辺の地理空間データの可視化</A>←（周辺統計量の計算）
+   <BR>&emsp; <font face="Georgia">8.1</font>　<A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/OECD-visualization.html">地物周辺の地理空間データの可視化</A>←（周辺統計量の計算）
 <BR>&emsp; <font face="Georgia">8.2</font>　<A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/street-shop-visualization.html"> 
 <font face="Georgia">OMS</font>データによる商店街の可視化</A></ul>
 <ul><font face="Georgia">9.</font>　<A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/DID-data-animation.html">
-アニメーションによる地理空間データの可視化</A></ul>
+アニメーションによる地理空間データの可視化</A>
+   <BR>&emsp; <font face="Georgia">9.1</font>　<A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/OECD-visualization.html">OECDデータによる住宅価格の可視化</A></ul>
