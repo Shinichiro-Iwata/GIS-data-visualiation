@@ -2862,8 +2862,10 @@ Earth</a>の世界地図に可視化．</p></li>
 </ul></li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;expersso/OECD&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co">#インストールが必要な場合</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;expersso/OECD&quot;</span>)</span></code></pre></div>
+<p>ライブラリ：<code>sf</code>，<code>tidyverse</code>，<code>OECD</code>，<code>rnaturalearth</code>，<code>gganimate</code></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">#OECDのデータ利用</span></span>
@@ -3138,11 +3140,12 @@ Earthの地理空間データの可視化</a>参照．
 <li>そこで，各国の首都の位置情報を取得．
 <ul>
 <li>ここでは，<a href="https://note.com/kentoide/n/n16354c4b3458">自由に使える首都名・位置情報データ</a>から取得．ただし，ダウンロードしたデータの首都名が入る列名<code>name</code>をデータ結合上<code>capital_name</code>に変更．</li>
-<li><code>hp_map</code>に首都の位置情報情報を追加するために，データ結合．</li>
+<li><code>hp_map</code>に首都の位置情報を追加するために，データ結合．</li>
 </ul></li>
+<li>世界地図は背景として利用．</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="co">#首都の緯度経度</span></span>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="co">#首都の位置情報</span></span>
 <span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a>capital <span class="ot">&lt;-</span></span>
 <span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a>  <span class="fu">read.csv</span>(<span class="st">&quot;capital_cities_2022_0.csv&quot;</span>,</span>
 <span id="cb19-4"><a href="#cb19-4" tabindex="-1"></a>           <span class="at">sep=</span><span class="st">&quot;,&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>)</span>
