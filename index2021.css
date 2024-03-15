@@ -302,8 +302,7 @@ address a:hover {
         background-color:#7999e4;
 	}
 
-.img-box img {
-   width: 100%;
+.img-box {
    text-align:center;
 }
 
