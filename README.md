@@ -66,7 +66,7 @@
 インタラクティブマップによる地理空間データの可視化</A>
    <BR>&emsp; <font face="Georgia">8.1</font>　<A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/OECD-visualization.html">地物周辺の地理空間データの可視化</A>←（周辺統計量の計算）
 <BR>&emsp; <font face="Georgia">8.2</font>　<A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/street-shop-visualization.html"> 
-<font face="Georgia">OMS</font>データによる商店街の可視化</A></ul>
+<font face="Georgia">OSM</font>データによる商店街の可視化</A></ul>
 <ul><font face="Georgia">9.</font>　<A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/DID-data-animation.html">
 アニメーションによる地理空間データの可視化</A>
    <BR>&emsp; <font face="Georgia">9.1</font>　<A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/OECD-visualization.html">OECDデータによる住宅価格の可視化</A></ul>
