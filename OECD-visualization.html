@@ -3009,8 +3009,10 @@ Earth</a>の世界地図に可視化．</p></li>
 {"columns":[{"label":["COU"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Time"],"name":[2],"type":["chr"],"align":["left"]},{"label":["ObsValue"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"USA","2":"1970","3":"55.7439820631505"},{"1":"USA","2":"1971","3":"57.7873609109132"},{"1":"USA","2":"1972","3":"59.8948007880571"},{"1":"USA","2":"1973","3":"63.5659370358062"},{"1":"USA","2":"1974","3":"62.8566953983266"},{"1":"USA","2":"1975","3":"61.6576257651558"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<p>8.　実質住宅価格の値（<code>ObsValue</code>）が文字なので数値に変更．
-- 準備完了．</p>
+<p>8.　実質住宅価格の値（<code>ObsValue</code>）が文字なので数値に変更．</p>
+<ul>
+<li>準備完了．</li>
+</ul>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> </span>
 <span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>  df <span class="sc">%&gt;%</span> </span>
 <span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ObsValue=</span><span class="fu">as.numeric</span>(ObsValue))</span></code></pre></div>
