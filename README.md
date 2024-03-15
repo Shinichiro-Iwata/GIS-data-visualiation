@@ -70,3 +70,6 @@
 <ul><font face="Georgia">9.</font>　<A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/DID-data-animation.html">
 アニメーションによる地理空間データの可視化</A>
    <BR>&emsp; <font face="Georgia">9.1</font>　<A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/OECD-visualization.html">OECDデータによる住宅価格の可視化</A></ul>
+ <div style="text-align: right">
+  <img src="kanagawa-ku-density.png">
+</div>
