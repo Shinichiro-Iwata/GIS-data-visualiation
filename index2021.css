@@ -215,6 +215,10 @@ p a:hover {
         border-bottom:solid 0.2em #555555;
 	}
 
+p.img-center {
+   text-align:center;
+}
+
 p.1 {
 	font-size:0.875em;
         color:#555555;
@@ -301,10 +305,6 @@ address a:hover {
         border-bottom:solid 0.2em #132a5e;
         background-color:#7999e4;
 	}
-
-.img-box {
-   text-align:center;
-}
 
 
 © 2022 GitHub, Inc.
