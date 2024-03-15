@@ -301,6 +301,13 @@ address a:hover {
         border-bottom:solid 0.2em #132a5e;
         background-color:#7999e4;
 	}
+
+.img-box img {
+   width: 100%;
+   text-align:center;
+}
+
+
 © 2022 GitHub, Inc.
 Terms
 Privacy
