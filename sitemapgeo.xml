@@ -60,8 +60,12 @@
     <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/bubble-map-visualization.html</loc>
     <priority>0.8</priority>
   </url>
-  <url>
+     <url>
     <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/compactcity-network-visualization.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/open-data-visualization.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
