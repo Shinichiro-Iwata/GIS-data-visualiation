@@ -96,10 +96,14 @@
 <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/interactive-map-visualization.html</loc>
 <priority>0.8</priority>
 </url>
+    <url>
+    <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/feature-periphery-visualization.html</loc>
+    <priority>0.8</priority>
+　  </url> 
  　 <url>
     <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/street-shop-visualization.html</loc>
     <priority>0.8</priority>
-　</url>
+　  </url>
 <!-- 9  -->
     <url>
     <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/OECD-visualization.html</loc>
