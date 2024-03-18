@@ -109,6 +109,10 @@
     <priority>0.8</priority>
 　  </url>
 <!-- 9  -->
+<url>
+<loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/DID-data-animation.html</loc>
+<priority>0.8</priority>
+</url>
     <url>
     <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/OECD-visualization.html</loc>
     <priority>0.8</priority>
