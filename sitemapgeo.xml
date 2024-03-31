@@ -54,11 +54,15 @@
   　<loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/hexbin-map-visualization.html</loc>
   　<priority>0.8</priority>
 　</url>
-<!-- 3 -->
+<!-- 3 blockdata-->
 <url>
 <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/census-block-data-visualization.html</loc>
 <priority>0.8</priority>
 </url>
+   <url>
+<loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/cbd1-visualization.html</loc>
+<priority>0.8</priority>
+   </url>
 <!-- 4 point data -->
 <url>
 <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/point-data-visualization.html</loc>
