@@ -1,0 +1,247 @@
+---
+title: "バブルマップによる地価の可視化"
+subtitle: "神奈川県，川崎市の例"
+author: <i class="fa-solid fa-user"></i>　[岩田真一郎](https://shinichiro-iwata.github.io/)（<i class="fa-solid fa-building-columns"></i>　[神奈川大学経済学部](https://www.econ.kanagawa-u.ac.jp/)）
+date: "2022-06-06作成，`r Sys.Date()`改訂"
+output: 
+   html_document:
+    highlight: pygments
+    toc: TRUE
+    toc_depth: 3
+    toc_float: TRUE
+    number_sections: FALSE
+    df_print: kable
+---
+
+<style>
+h1 {color: #1e4294;}
+
+a {color: #1e4294;}
+
+a:hover{color: #1e4294;
+        text-decoration:none;
+        background-color: #7999e4;
+        border-bottom:solid 0.2em #1e4294}
+
+.list-group-item.active {
+    color: white;
+    background-color: #1e4294;
+    border: none;
+}
+
+list-group-item.active, 
+.list-group-item.active:focus, 
+.list-group-item.active:hover {
+    background-color: #1e4294;}
+    
+code {
+    background-color: #1e4294; 
+    color: white; 
+}</style>
+
+<script src="https://kit.fontawesome.com/484dcd01e4.js" crossorigin="anonymous"></script>
+
+
+# 目的
+地価公示（ポイント）の大きさを変えることにより，地価が高い箇所を強調表現（地価が低い箇所は抑制表現）．ポイントはバブル（泡）と言い換えられ，バブルを使った図はバブルチャートとよばれる．地図の場合はバブルマップとよぶ．
+
+ライブラリ：`sf`，`tidyverse`
+```{r, warning=FALSE, message=FALSE}
+library(sf)
+library(tidyverse)
+```
+
+# 地価公示の可視化
+[ポイントデータによる地価の可視化](https://shinichiro-iwata.github.io/geospatial-data-visualization/point-data-visualization.html)で作成した神奈川県の地価（2022年）を再現．
+
+**シェープファイルのダウンロード**
+
+- [国土数値情報ダウンロードサービス](https://nlftp.mlit.go.jp/ksj/)　>　行政区域（ポリゴン）　>　神奈川県　>　令和3年
+
+- [国土数値情報ダウンロードサービス](https://nlftp.mlit.go.jp/ksj/)　>　地価公示（ポイント）　>　神奈川県　>　「神奈川県」データのダウンロード　>　世界測地系　令和4年
+  - ダウンロードしたZIPファイルは同じフォルダ（ディレクトリ）に納め，ZIPファイルを選択 >　右クリック　>　すべて展開　>　展開先の選択とファイルの選択　>　展開を実行する．展開後は最初にダウンロードしたZIPファイルを削除．
+  - シェープファイルの読込（`read_sf`）：行政区域を`Kanagawa_map`，地価公示を`Kanagawa_lp`と名付ける．
+
+```{r}
+Kanagawa_map<-
+  read_sf('N03-20210101_14_GML/N03-21_14_210101.shp')
+
+Kanagawa_lp<-read_sf('L01-22_14_GML/L01-22_14.shp')
+```
+
+**データのソート**
+
+地価（`L01_006`）が高いポイントの色が上にくるよう順番を変更（`arrange`）．
+
+- データ名は`Kanagawa_lp`のまま．
+```{r}
+Kanagawa_lp %>%
+  arrange(L01_006) -> 
+  Kanagawa_lp
+```
+
+**再現図形**
+
+```{r echo = FALSE}
+ggplot()+ 
+  geom_sf(data=Kanagawa_map, fill="white")+
+  geom_sf(data=Kanagawa_lp,aes(color = L01_006/10000))+
+  scale_color_viridis_c(option="G",
+                      direction=-1)+ 
+  geom_sf(data=Kanagawa_map, fill="NA")+
+  labs(color="万円／㎡")+
+  ggtitle("神奈川県の地価（2022年）")+
+  theme_bw()
+```
+
+# バブルマップによる可視化
+地価公示ポイント（バブル）の大きさを変えるために，`aes(size)`を利用する．これを活かすために，地価公示ポイント（`x`軸が経度，`y`軸が緯度）の変数を作成．
+
+- 地価公示ポイントは緯度経度により表現される．この情報は列名`geometry`にすでに納められている．
+  - `select()`：列の抽出．
+  - データ名（`Kanagawa_lp1`）を変更して，`head()`で中身を確認．
+  
+```{r}
+#geometry抽出，データ名変更
+Kanagawa_lp1 <-
+  Kanagawa_lp %>%
+  select(geometry)
+
+#最初の6行
+Kanagawa_lp1 %>% 
+  head()
+```
+
+- ↑の``列の中身（成分）を見ると，緯度経度の両方が含まれている．
+  - `st_coordinates()`：座標を取得するように指示．ここでは，括弧内の1番目の数値（経度）を`x`，2番目の数値（緯度）を`y`とするように指示．
+  - データ名は`Kanagawa_lp`のまま．
+   - 中身を確認するため，`select()`を用いて必要な列の抽出．
+   - データ名（`Kanagawa_lp2`）を変更して，`head()`で中身を確認．
+
+```{r}
+#もとのデータで作業
+Kanagawa_lp %>%
+  mutate(x=st_coordinates(geometry)[, 1],
+         y=st_coordinates(geometry)[, 2]) -> 
+  Kanagawa_lp
+ 
+#geometry，緯度経度の抽出，データ名変更
+Kanagawa_lp2 <-
+  Kanagawa_lp %>%
+  select(geometry, x, y)
+
+#最初の6行
+Kanagawa_lp2 %>% 
+  head()
+```
+
+**バブルマップを用いた可視化**
+
+- `aes(x=x, y=y)`：`x`軸を↑で作成した`x`の値を，`y`軸を↑で作成した`y`の値を使うように指示．これにより，泡（地価ポイント）の位置（緯度経度）が確定する．
+- `aes(color=, size=)`で泡（地価ポイント）の色（`color`）と大きさ（`size`）を指示．
+  - `aes(size=L01_006/10000)`：泡（地価ポイント）の大きさを2022年の地価（`L01_006`）の高低で表現できるようにに指示．
+  - ここでは単位を万円／㎡にするために`L01_006`を1万（`10000`）で割る．
+  
+- `guide="legend"`：凡例を制御．指示しない場合，`color`と`size`の凡例が別々に表現される．
+- `scale_size_area(max_size=10)`で泡の大きさの最大値を指示．
+- `x=""`，`y=""`を記すことで，`x`軸と`y`軸のラベル削除．
+```{r}
+ggplot()+
+  geom_sf(data=Kanagawa_map, fill="white")+
+  geom_point(data=Kanagawa_lp, 
+             aes(x=x, y=y, 
+              color=L01_006/10000,
+              size=L01_006/10000))+
+  scale_color_viridis_c(option="G",
+                      direction=-1,
+                      guide="legend")+
+  scale_size_area(max_size=10)+ 
+  geom_sf(data=Kanagawa_map, fill="NA")+
+  labs(color="万円／㎡", size="万円／㎡", 
+       x="", y="")+
+  ggtitle("神奈川県の地価（2022年）")+
+  theme_bw()
+```
+
+**完成図**
+
+凡例のデータの分類の間隔（閾値）を自分で作成し，`my_breaks`と名付ける．
+
+- `scale_color_distiller()`，`scale_size_area()`ともにデータの分類間隔(`breaks`)に`my_breaks`を適用するように指示．
+- `labs()`内に出典を表記（`caption`）．
+```{r}
+my_breaks<-c(100, 200, 400, 600, 1600)
+
+ggplot()+
+  geom_sf(data=Kanagawa_map,  fill="white")+
+  geom_point(data=Kanagawa_lp, 
+             aes(x=x, y=y, 
+                 color=L01_006/10000,
+                 size=L01_006/10000))+
+  scale_color_viridis_c(option="G",
+                      direction=-1,
+                      guide="legend",
+                      breaks=my_breaks)+
+  scale_size_area(max_size=10,
+                  breaks=my_breaks)+
+  geom_sf(data=Kanagawa_map, fill="NA")+
+  labs(color="万円／㎡", size="万円／㎡",
+       x="", y="",
+       caption="出典：国土交通省国土数値情報")+
+  ggtitle("神奈川県の地価（2022年）")+
+  theme_bw()
+```
+
+# 川崎市の例
+神奈川県の行政区域データ及び地価公示データから川崎市だけを抜き出し，2022年度（令和4年度）の地価（公示価格）を可視化．
+
+- 行政区域については`N03_003`から「川崎市」を識別．
+- 地価については`L01_022`に川崎市の行政区域のコード（`14131`～`14137`）が示されている． 
+ 
+```{r}
+#川崎市の行政区域の抽出
+Kanagawa_map %>%
+  filter(N03_003=="川崎市") ->
+  Kawasaki_map
+
+#川崎市の地価の抽出
+Kanagawa_lp %>%
+  filter(L01_022>=14131 & L01_022<=14137) ->
+  Kawasaki_lp
+```
+
+- `theme()`：凡例の位置などの変更．
+
+```{r}
+#川崎市地価の可視化
+#凡例の目盛幅を対数変換
+my_breaks<-c(10, 50, 100, 200, 300, 400, 500)
+
+ggplot()+
+  geom_sf(data=Kawasaki_map, fill="gray",
+          alpha=0.7,
+          color="gray60", linewidth=0.75)+
+  geom_point(data=Kawasaki_lp, 
+             aes(x=x, y=y, 
+                 color=L01_006/10000,
+                 size=L01_006/10000))+
+  scale_color_viridis_c(option="G", direction=-1,
+                      guide="legend",
+                      breaks=my_breaks)+
+  scale_size_area(max_size=5, 
+                  breaks=my_breaks)+ 
+  labs(color="万円／㎡", size="万円／㎡")+
+  ggtitle("川崎市地価（2022年）")+
+  theme_void()+
+  theme(legend.position.inside=c(0.85, 0.7),
+        legend.background=element_rect(
+        fill=NA, color=NA))
+```
+
+**参考ウェブサイト**
+
+- [Bubble map with ggplot2](https://r-graph-gallery.com/330-bubble-map-with-ggplot2.html) – [the R Graph Gallery](https://r-graph-gallery.com/)
+
+**Rによる地理空間データの可視化**
+
+- チュートリアル[ホーム](https://shinichiro-iwata.github.io/geospatial-data-visualization/)
