@@ -21,7 +21,7 @@
       <ul><font face="Georgia">2.</font>　<A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/grid-data-visualization.html">
   地域メッシュ統計による人口密度の可視化</A>
   <BR>&emsp; <font face="Georgia">2.1</font>　
-    <A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/community_bus_visualization.html">コミュニティバス路線上の人口密度の可視化</A>
+    <A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/community-bus-visualization.html">コミュニティバス路線上の人口密度の可視化</A>
     <BR>&emsp; <font face="Georgia">2.2</font>　
       <A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/economic-census-visualization.html"><font face="Georgia">OpenStreetMap</font>を背景にした情報通信業事業所数の可視化</A>
 　　　　<BR>&emsp; <font face="Georgia">2.3</font>　
