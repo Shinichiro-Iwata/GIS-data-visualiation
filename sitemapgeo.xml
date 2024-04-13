@@ -54,6 +54,10 @@
   　<loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/hexbin-map-visualization.html</loc>
   　<priority>0.8</priority>
 　</url>
+  <url>
+     <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/elevation-slope-visualization.html></loc>
+     <priority>0.8</priority>
+　</url>
 <!-- 3 blockdata-->
 <url>
 <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/census-block-data-visualization.html</loc>
