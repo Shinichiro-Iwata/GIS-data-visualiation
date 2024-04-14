@@ -35,14 +35,14 @@
 <priority>0.8</priority>
 </url>
   <url>
-    <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/community_bus_visualization.html</loc>
-   　<priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/economic-census-visualization.html</loc>
    　<priority>0.8</priority>
   </url>
-  <url>
+   <url>
+    <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/community-bus-visualization.html</loc>
+   　<priority>0.8</priority>
+   </url>
+   <url>
     <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/land-use-subdivision-mesh-visualization.html</loc>
     <priority>0.8</priority>
   </url>
