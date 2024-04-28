@@ -141,5 +141,11 @@
     <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/OECD-visualization.html</loc>
     <priority>0.8</priority>
 </url>
+<!-- 10  -->
+<url>
+<loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/raster-elevation-visualization.html</loc>
+<priority>0.8</priority>
+</url>
+  
 </urlset>
 
