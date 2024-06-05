@@ -2888,7 +2888,7 @@ Earthのデータを扱うパッケージが用意されているため，それ
 <ul>
 <li>（アジアー太平洋が中心にくる）見慣れた地図ではないが，これは経度0度が縦軸の中心（<a href="https://ja.wikipedia.org/wiki/%E6%9C%AC%E5%88%9D%E5%AD%90%E5%8D%88%E7%B7%9A">本初子午線</a>）に描かれているため．</li>
 <li>緯度0度が横軸の中心（<a href="https://ja.wikipedia.org/wiki/%E8%B5%A4%E9%81%93">赤道</a>）.</li>
-<li>アジアー太平洋中心の地図は下記の<a href="https://shinichiro-iwata.github.io/geospatial-data-visualization/rnaturalearth-visualization.html#%E5%BF%9C%E7%94%A8">応用</a>参照．</li>
+<li>アジアー太平洋中心の地図は下記の<a href="https://shinichiro-iwata.github.io/geospatial-data-visualization/rnaturalearth-visualization.html#%E3%82%A2%E3%82%B8%E3%82%A2%E3%83%BC%E5%A4%AA%E5%B9%B3%E6%B4%8B%E4%B8%AD%E5%BF%83">アジアー太平洋中心</a>を参照．</li>
 </ul></li>
 </ul>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
@@ -2963,8 +2963,8 @@ Map</a>（アクセス日：2022-08-15）のBasic Examplesを参照した．</li
 <div id="アジアー太平洋中心" class="section level3">
 <h3>アジアー太平洋中心</h3>
 <ul>
-<li>次に中心を本初子午線ではなく　，見慣れたアジアー太平洋を中心とした地図に変更．</li>
-<li>可視化すると，グリーンランドが横に広がりすぎるので，この図では削除．</li>
+<li>次に中心を本初子午線ではなく，アジアー太平洋を中心とした地図に変更．</li>
+<li>可視化すると，グリーンランドが横に広がりすぎるので，この地図では削除．</li>
 </ul>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>World_map <span class="sc">%&gt;%</span> </span>
 <span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>  <span class="fu">filter</span>(iso_a3<span class="sc">!=</span><span class="st">&quot;GRL&quot;</span>) <span class="ot">-&gt;</span></span>
