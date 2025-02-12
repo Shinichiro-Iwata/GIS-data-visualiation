@@ -2822,7 +2822,7 @@ border-radius: 0px;
 
 
 <h1 class="title toc-ignore">ポイントデータによる地価の可視化</h1>
-<h3 class="subtitle">神奈川県の例</h3>
+<h3 class="subtitle">神奈川県，川崎市の例</h3>
 <h4 class="author"><i class="fa-solid fa-user"></i>　<a href="https://shinichiro-iwata.github.io/">岩田真一郎</a>（<i class="fa-solid fa-building-columns"></i>　<a href="https://www.econ.kanagawa-u.ac.jp/">神奈川大学経済学部</a>）</h4>
 <h4 class="date">2022-06-01作成，2025-02-12改訂</h4>
 
@@ -2875,7 +2875,7 @@ background-color: #1e4294; color: white; }</style>
 <span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>Kanagawa_lp <span class="ot">&lt;-</span></span>
 <span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>  <span class="fu">read_sf</span>(<span class="st">&quot;L01-22_14_GML/L01-22_14.shp&quot;</span>)</span>
 <span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co"># Kanagawa_lpのCRS変換</span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co">#Kanagawa_lpのCRS変換</span></span>
 <span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>Kanagawa_lp <span class="ot">&lt;-</span> Kanagawa_lp <span class="sc">%&gt;%</span> </span>
 <span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>  <span class="fu">st_transform</span>(<span class="at">crs=</span><span class="dv">6668</span>)</span></code></pre></div>
 <p><strong>参考</strong></p>
@@ -3044,7 +3044,7 @@ background-color: #1e4294; color: white; }</style>
 <h3><span class="header-section-number">4.1.2</span> 川崎市</h3>
 <p>神奈川県の行政区域データ及び地価公示データから川崎市だけを抜き出し，可視化．</p>
 <ul>
-<li>行政区域については<code>N03_003</code>から「川崎市」を識別．</li>
+<li>行政区域については<code>N03_003</code>から<code>川崎市</code>を識別．</li>
 <li>地価については<code>L01_022</code>に川崎市の行政区域のコード（<code>14131</code>～<code>14137</code>）が示されている．</li>
 </ul>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>my_breaks <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">400</span>)</span>
