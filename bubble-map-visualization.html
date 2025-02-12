@@ -1745,9 +1745,10 @@ background-color: #1e4294; color: white; }</style>
 <ul>
 <li><code>aes(size=L01_006/10000)</code>：泡（地価ポイント）の大きさを2022年の地価（<code>L01_006</code>）の高低で表現できるようにに指示．</li>
 <li>ここでは単位を万円／㎡にするために<code>L01_006</code>を1万（<code>10000</code>）で割る．</li>
+<li><code>alpha</code>で泡の色の透明度を調整．</li>
 </ul></li>
 <li><code>guide=&quot;legend&quot;</code>：凡例を制御．指示しない場合，<code>color</code>と<code>size</code>の凡例が別々に表現される．</li>
-<li><code>scale_size_area(max_size=10)</code>で泡の大きさの最大値を指示．</li>
+<li><code>scale_size_area(max_size=7)</code>で泡の大きさの最大値を指示．</li>
 <li><code>x=&quot;&quot;</code>，<code>y=&quot;&quot;</code>を記すことで，<code>x</code>軸と<code>y</code>軸のラベル削除．</li>
 </ul>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>my_breaks <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">400</span>, <span class="dv">800</span>, <span class="dv">1600</span>)</span>
@@ -1756,9 +1757,9 @@ background-color: #1e4294; color: white; }</style>
 <span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data=</span>Kanagawa_map, <span class="at">fill=</span><span class="st">&quot;white&quot;</span>)<span class="sc">+</span></span>
 <span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span><span class="fu">subset</span>(Kanagawa_lp, L01_006<span class="sc">/</span><span class="dv">10000</span><span class="sc">&gt;=</span><span class="dv">25</span>), </span>
-<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y=</span>y, </span>
-<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>              <span class="at">color=</span>L01_006<span class="sc">/</span><span class="dv">10000</span>,</span>
-<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>              <span class="at">size=</span>L01_006<span class="sc">/</span><span class="dv">10000</span>),</span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y=</span>y,</span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>                 <span class="at">color=</span>L01_006<span class="sc">/</span><span class="dv">10000</span>,</span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>                 <span class="at">size=</span>L01_006<span class="sc">/</span><span class="dv">10000</span>),</span>
 <span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>             <span class="at">alpha=</span><span class="fl">0.75</span>)<span class="sc">+</span></span>
 <span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a>  <span class="fu">scale_color_viridis_b</span>(<span class="at">option=</span><span class="st">&quot;G&quot;</span>, <span class="at">direction=</span><span class="sc">-</span><span class="dv">1</span>,</span>
 <span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a>                        <span class="at">trans=</span><span class="st">&quot;log10&quot;</span>,</span>
