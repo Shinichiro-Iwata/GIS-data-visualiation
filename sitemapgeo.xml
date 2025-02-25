@@ -146,6 +146,10 @@
 <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/raster-elevation-visualization.html</loc>
 <priority>0.8</priority>
 </url>
+  <url>
+    <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/nighttime-lights-visualization.html</loc>
+    <priority>0.8</priority>
+</url>
   
 </urlset>
 
