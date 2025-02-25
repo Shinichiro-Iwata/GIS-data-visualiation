@@ -76,5 +76,6 @@
 アニメーションによる地理空間データの可視化</A>
    <BR>&emsp; <font face="Georgia">9.1</font>　<A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/OECD-visualization.html">OECDデータによる住宅価格の可視化</A></ul>
 <ul><font face="Georgia">10.</font>　<A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/raster-elevation-visualization.html">
-ラスターデータによる標高の可視化</A>←（陰影表現）</ul>
+ラスターデータによる標高の可視化</A>←（陰影表現）
+   <BR>&emsp; <font face="Georgia">10.1</font>　<A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/nighttime-lights-visualization.html">夜間光ラスターデータの可視化</A></ul>
  <img src="kanagawa-ku-density.png" align="right">
