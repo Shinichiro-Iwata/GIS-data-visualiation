@@ -2824,7 +2824,7 @@ border-radius: 0px;
 <h1 class="title toc-ignore">小地域統計による人口の可視化</h1>
 <h3 class="subtitle">静岡県の例</h3>
 <h4 class="author"><i class="fa-solid fa-user"></i>　<a href="https://shinichiro-iwata.github.io/">岩田真一郎</a>（<i class="fa-solid fa-building-columns"></i>　<a href="https://www.econ.kanagawa-u.ac.jp/">神奈川大学経済学部</a>）</h4>
-<h4 class="date">2022-06-03作成，2025-02-14改定</h4>
+<h4 class="date">2022-06-03作成，2025-02-26改定</h4>
 
 </div>
 
@@ -2915,7 +2915,7 @@ themes</a>を参照．</li>
 <span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>  Shizuoka_map</span></code></pre></div>
 <p>現在のままだと，小地域＋人口のまま．これを行政区域＋人口密度に変更し，可視化．</p>
 <ul>
-<li>行政区域（<code>CITY</code>）をクループ（<code>group_by()</code>）にする．</li>
+<li>行政区域（<code>CITY</code>）をクループ（<code>group_by()</code>）にする．<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></li>
 <li>次に<code>summrize()</code>に渡し，括弧内を空欄にすると小地域が行政区域に単位でまとまる．
 <ul>
 <li>ただし，行政区域の人口密度を求めるため，<code>summrize()</code>の括弧内を空欄にせず，計算式を示す．</li>
@@ -3013,6 +3013,7 @@ themes</a>を参照．</li>
 <ol>
 <li id="fn1"><p><a href="https://www.e-stat.go.jp/gis">統計地理情報システム</a>には境界データのほか統計データが用意されている．国勢調査の小地域人口は統計データ（人口総数）にも含まれているが，この数値と今回使用した小地域人口（<code>JINKO</code>）が一致しない場合がある．詳細は<a href="https://shinichiro-iwata.github.io/geospatial-data-visualization/cbd1-visualization">小地域データによる人口変化の可視化</a>を参照．<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p><a href="https://ja.wikipedia.org/wiki/%E3%83%91%E3%82%A4%E3%83%97%E3%83%A9%E3%82%A4%E3%83%B3%E6%BC%94%E7%AE%97%E5%AD%90">パイプ演算子</a>（パイプ）を挟むことにより，パイプの左あるデータや結果を右にある式の１つ目の引数として渡せる．左から右へ計算を次々に加えられる便利な道具として広く利用されている．<code>x %&gt;% f()</code>は<code>f(x)</code>と，<code>x %&gt;% f(y)</code>は<code>f(x, y)</code>と同じ結果を得る．<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>行政区域（<code>CITY</code>）ではなく市町村（<code>GST_NAME</code>）でグループにすると，政令指定都市の静岡市と浜松市を一つにまとめられる．<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 
