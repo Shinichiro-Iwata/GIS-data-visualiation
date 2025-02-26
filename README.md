@@ -79,6 +79,6 @@
 ラスターデータによる標高の可視化</A>←（陰影表現）
    <BR>&emsp; <font face="Georgia">10.1</font>　<A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/nighttime-lights-visualization.html">夜間光ラスターデータの可視化</A></ul>
 <ul><font face="Georgia">補論</font>　<A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/sf-package-shapefile.html">
-<font face="Georgia">sf</font>パッケージの仕組みと地理空間データの扱い方</A>
+<font face="Georgia">sf</font>パッケージの仕組みと地理空間データの可視化</A>
  <img src="kanagawa-ku-density.png" align="right">
  
