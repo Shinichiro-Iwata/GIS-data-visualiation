@@ -150,6 +150,11 @@
     <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/nighttime-lights-visualization.html</loc>
     <priority>0.8</priority>
 </url>
+<!-- Appendix  -->
+<url>
+<loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/sf-package-shapefile.html</loc>
+<priority>0.8</priority>
+</url>
   
 </urlset>
 
