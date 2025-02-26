@@ -1,0 +1,227 @@
+---
+title: "小地域統計による人口の可視化"
+subtitle: "静岡県の例"
+author: <i class="fa-solid fa-user"></i>　[岩田真一郎](https://shinichiro-iwata.github.io/)（<i class="fa-solid fa-building-columns"></i>　[神奈川大学経済学部](https://www.econ.kanagawa-u.ac.jp/)）
+date: "2022-06-03作成，`r Sys.Date()`改定"
+output: 
+   html_document:
+    highlight: pygments
+    toc: TRUE
+    toc_depth: 3
+    toc_float: TRUE
+    number_sections: TRUE
+    df_print: paged
+---
+
+<style>
+h1 {color: #1e4294;}
+
+a {color: #1e4294;}
+
+a:hover{color: #1e4294;}
+
+.list-group-item.active {
+    color: white;
+    background-color: #1e4294;
+    border: none;
+}
+
+list-group-item.active, 
+.list-group-item.active:focus, 
+.list-group-item.active:hover {
+    background-color: #1e4294;}
+    
+code {
+    background-color: #1e4294; 
+    color: white; 
+}</style>
+
+<script src="https://kit.fontawesome.com/484dcd01e4.js" crossorigin="anonymous"></script>
+
+# 目的
+国勢調査の小地域（町丁・字等別，ポリゴン）に人口を示す．応用例として，小地域を行政区域（ポリゴン）にまとめ，人口密度を示す．
+
+パッケージ：`sf`，`tidyverse`
+```{r, warning=FALSE, message=FALSE}
+library(sf)
+library(tidyverse)
+```
+
+# 小地域の人口の可視化
+**シェープファイルのダウンロード**
+
+- [統計地理情報システム](https://www.e-stat.go.jp/gis)　>　境界データダウンロード　>　小地域　>　国勢調査　>　2015年　>　小地域（町丁・字等別）（JGD2000）　>　世界測地系緯度経度・Shapefile　>　22000 静岡県全域 
+
+  - ダウンロードしたZIPファイルは同じフォルダ（ディレクトリ）に納め，ZIPファイルを選択 >　右クリック　>　すべて展開　>　展開先の選択とファイルの選択　>　展開を実行する．展開後は最初にダウンロードしたZIPファイルを削除．
+  - `read_sf`：データ読込．オブジェクトを`Shizuoka_map`とする．
+
+**小地域の可視化**
+
+```{r}
+Shizuoka_map <- 
+  read_sf("A002005212015DDSWC22/h27ka22.shp") 
+
+#小地域の可視化
+ggplot()+
+  geom_sf(data=Shizuoka_map, fill="white") 
+```
+
+**参考**
+
+小地域のポリゴンは行政区域のポリゴンに比べて小さい．また，海上にもポリゴン（水面調査区）が存在する（静岡県は目立たないが，例えば神奈川県や富山県は目立つ）．このことを確認するために，[国土数値情報ダウンロードサービス](https://nlftp.mlit.go.jp/ksj/)から得られる静岡県の行政区域（ポリゴン）と比較する．なお，行政区域の<span style="background-color:#40498EFF; padding: 0 5px;"></span>で囲まれている部分は静岡市，<span style="background-color:#38AAACFF; padding: 0 5px;"></span>は浜松市．
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+S_chizu <- ggplot()+
+  geom_sf(data=Shizuoka_map, fill="white")+
+  ggtitle("小地域")
+
+Shizuoka_map2<-read_sf("N03-20210101_22_GML/N03-21_22_210101.shp", 
+                       options = "ENCODING=CP932")
+                       
+Shizuoka_map2 %>%
+  filter(N03_003=="静岡市") %>%
+  summarise()-> 
+  Shizuoka_city
+
+Shizuoka_map2 %>%
+  filter(N03_003=="浜松市")%>%
+  summarise()-> 
+  hamamatsu_city
+
+S_kokudo<-ggplot()+geom_sf(data=Shizuoka_map, fill="white")+
+  geom_sf(data=Shizuoka_city, fill="NA", color="#40498EFF", linewidth=1)+
+  geom_sf(data=hamamatsu_city, fill="NA", color="#38AAACFF", linewidth=1)+
+  ggtitle("行政区域")
+  
+library(gridExtra) #複数地図を1つにまとめ，並べるためのライブラリ
+grid.arrange(S_kokudo, S_chizu,
+             ncol = 2)　#横に並べる．つけなければ上下に並ぶ  
+```
+
+**小地域の人口の可視化**
+
+今回ダウンロードしたデータ（`Shizuoka_map`）には，小地域の人口（人，`JINKO`），面積（㎡，`AREA`)の情報も含まれる．[^foot1]その他に，世帯数（`SETAI`）の情報も含まれる．
+
+
+[^foot1]:[統計地理情報システム](https://www.e-stat.go.jp/gis)には境界データのほか統計データが用意されている．国勢調査の小地域人口は統計データ（人口総数）にも含まれているが，この数値と今回使用した小地域人口（`JINKO`）が一致しない場合がある．詳細は[小地域データによる人口変化の可視化](https://shinichiro-iwata.github.io/geospatial-data-visualization/cbd1-visualization)を参照．
+
+- `aes()`：示したい変数（数値データ）を指定．ここでは`JINKO`を指定．色付けは枠内（`fill`）
+  - 枠線（`color`）は白に指定．
+- `theme_void()`：空のテーマ．その他のテーマは[Complete themes](https://ggplot2.tidyverse.org/reference/ggtheme.html)を参照．
+```{r}
+ggplot()+
+  geom_sf(data=Shizuoka_map, 
+          aes(fill=JINKO), color="white")+
+  scale_fill_viridis_c(option="G", direction=-1)+
+  labs(fill="人")+
+  ggtitle("小地域人口（2015年）")+
+  theme_void()
+```
+
+# 応用例
+## 行政区域の人口密度の可視化
+小地域を行政区域にまとめて，人口密度を可視化．
+
+**水面調査区**
+
+- 国勢調査の調査区：分類コード（`HCODE`）で一般調査区（町丁・字等，`8101`）と水面調査区（水域で水上生活者のいる
+区域，`8154`）に分類．そのほか，特別調査区が存在．
+  - ここでは，パイプ演算子（`%>%`）を利用し，[^foot2]`Shizuoka_map`の一般調査区（`8101`）だけを残し（`filter(HCODE==8101)`），再びオブエジェクト名を`Shizuoka_map`とする．
+  
+[^foot2]:[パイプ演算子](https://ja.wikipedia.org/wiki/%E3%83%91%E3%82%A4%E3%83%97%E3%83%A9%E3%82%A4%E3%83%B3%E6%BC%94%E7%AE%97%E5%AD%90)（パイプ）を挟むことにより，パイプの左あるデータや結果を右にある式の１つ目の引数として渡せる．左から右へ計算を次々に加えられる便利な道具として広く利用されている．`x %>% f()`は`f(x)`と，`x %>% f(y)`は`f(x, y)`と同じ結果を得る．
+
+```{r}
+#一般調査区の抽出
+Shizuoka_map %>% 
+  filter(HCODE==8101) ->
+  Shizuoka_map
+```
+
+現在のままだと，小地域＋人口のまま．これを行政区域＋人口密度に変更し，可視化．
+
+- 行政区域（`CITY`）をクループ（`group_by()`）にする．^[行政区域（`CITY`）ではなく市町村（`GST_NAME`）でグループにすると，政令指定都市の静岡市と浜松市を一つにまとめられる．]
+- 次に`summrize()`に渡し，括弧内を空欄にすると小地域が行政区域に単位でまとまる．
+  - ただし，行政区域の人口密度を求めるため，`summrize()`の括弧内を空欄にせず，計算式を示す．
+  - 小地域の人口を足し上げ（`sum(JINKO)`），行政区域の人口に変更し，小地域の面積を足し上げ（`sum=(AREA)`），行政区域の面積にする．行政区域の総人口を`Population`，行政区域の総面積を`Areatotal`とする．
+  - 行政区域を人口密度（`Density`）で示す．人／㎡はあまり使われないため，人／㎢に変更，`Areatotal`を100万（`1000000`）で割る（＝人／㎡に100万を掛ける）．
+  - オブジェクト名を`Shizuoka_map2`に変更する．
+    - [Rを使ってシェープファイルから白地図を描く](https://qiita.com/nozma/items/8e890595c07d3be86bc9)（アクセス日：2022年5月19日）を参考に作成．
+```{r}
+Shizuoka_map %>%
+  group_by(CITY) %>%
+  summarise(Population=sum(JINKO),
+            Areatotal=sum(AREA),
+            Density=Population/Areatotal*1000000) ->
+  Shizuoka_map2
+
+#可視化
+ggplot()+
+  geom_sf(data=Shizuoka_map2, 
+          aes(fill=Density))+
+  scale_fill_viridis_c(option="G", direction=-1)+
+  labs(fill="人／㎢")+
+  ggtitle("行政区域人口密度（2015年）")+
+  theme_void()
+```
+
+## サブセットの人口密度の可視化
+- オブジェクト`Shizuoka_map`から`subset()`を用いて一部の小地域だけを抜き出す．
+
+**静岡市**
+
+- `GST_NAME`列を用いて`静岡市`を抽出．
+　
+```{r}
+ggplot()+
+  geom_sf(data=subset(Shizuoka_map,
+                      GST_NAME=="静岡市"), 
+          aes(fill=JINKO), color="white")+
+  scale_fill_viridis_c(option="G", direction=-1)+
+  labs(fill="人")+
+  ggtitle("静岡市小地域人口（2015年）")+
+  theme_void()
+```
+
+**富士地域**
+
+ここでは，富士宮市と富士市を富士地域とする．
+
+- `CITY`列を用いて`207`（富士宮市）と`210`（富士市）を抽出．
+  - または`GST_NAME`列を用いて`富士宮市`と`富士市`を抽出．
+
+- 富士宮市と富士市の境界を示すため，行政区域単位でまとめた`Shizuoka_map2`を利用．
+  - `CITY`列を用いることで`207`（富士宮市）と`210`（富士市）を抽出可能．
+
+```{r}
+ggplot()+
+  geom_sf(data=subset(Shizuoka_map,
+                       CITY=="207" | CITY=="210"), 
+          aes(fill=JINKO), color="white")+
+  scale_fill_viridis_c(option="G", direction=-1)+
+  geom_sf(data=subset(Shizuoka_map2,
+                      CITY=="207" | CITY=="210"),
+          fill="NA", linewidth=0.6)+
+  labs(fill="人")+
+  ggtitle("富士地域小地域人口（2015年）")+
+  theme_void()
+```
+
+- `facet_wrap()`で抽出した二都市を並べてみる．
+
+```{r}
+ggplot()+
+  geom_sf(data=subset(Shizuoka_map,
+                      GST_NAME=="富士宮市" |
+                        GST_NAME=="富士市"), 
+          aes(fill=JINKO), color="white")+
+  scale_fill_viridis_c(option="G", direction=-1)+
+  facet_wrap(~GST_NAME, ncol=2)+
+  labs(fill="人")+
+  coord_sf(datum=NA)+
+  ggtitle("富士地域小地域人口（2015年）")+
+  theme_bw()
+```
+
+**Rによる地理空間データの可視化**
+
+- チュートリアル[ホーム](https://shinichiro-iwata.github.io/geospatial-data-visualization/)
