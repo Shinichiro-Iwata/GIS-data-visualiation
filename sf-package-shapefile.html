@@ -1649,7 +1649,7 @@ background-color: #1e4294; color: white; }</style>
 <li>立地点として東急東横線白楽駅とセブン-イレブン横浜六角橋2丁目店も加え，この二点についても上と同じ手順で<code>sfg</code>オブジェクトにする．</li>
 <li><code>st_sfc()</code>を用いて，<code>stg</code>オブジェクトを<code>sfc</code>オブジェクトに変換．<code>crs=</code>で座標参照系を設定．
 <ul>
-<li><code>st_sfc()</code>は新しく<code>sfc</code>オブジェクトを作成．それに対して，<code>st_sfc()</code>はすでにあるデータを<code>sfc</code>オブジェクトに変換．例えば，<code>st_bbox()</code>などの地理空間情報で作成された境界ボックス（数値のリスト）を<code>sfc</code>オブジェクトに変換する際に利用．</li>
+<li><code>st_sfc()</code>は新しく<code>sfc</code>オブジェクトを作成．それに対して，<code>st_as_sfc()</code>はすでにあるデータを<code>sfc</code>オブジェクトに変換．例えば，<code>st_bbox()</code>などの地理空間情報で作成された境界ボックス（数値のリスト）を<code>sfc</code>オブジェクトに変換する際に利用．</li>
 </ul></li>
 </ul></li>
 </ul>
