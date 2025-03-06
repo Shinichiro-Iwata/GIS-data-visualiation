@@ -1585,7 +1585,7 @@ background-color: #1e4294; color: white; }</style>
 <li><a href="https://ja.wikipedia.org/wiki/%E9%83%BD%E5%B8%82%E5%9C%8F">都市圏</a>：都市圏は，日常的な活動の空間的な広
 がりに着目して定義される結節地域（<a id="ref-kanemoto2002" href="#kanemoto2002">金本・徳岡</a>，2002）</li>
 </ul></li>
-<li>都市人口（都市規模）とその順位を利用して<strong>ランク・サイズルール</strong>（順位・規模の法則）が成立しているかを確認．
+<li>都市人口（都市規模）とその順位を利用して<strong>ランク・サイズルール</strong>（順位・規模の法則）が成立しているのかを確認．
 <ul>
 <li><a href="https://ja.wikipedia.org/wiki/%E9%A0%86%E4%BD%8D%E3%83%BB%E8%A6%8F%E6%A8%A1%E6%B3%95%E5%89%87">ランク・サイズルール</a>：<a href="https://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%83%E3%83%97%E3%81%AE%E6%B3%95%E5%89%87">ジップの法則</a>の一例．n番目に出現したある都市圏の人口が，1位の都市圏の人口の1/n倍になるという法則．縦軸に都市圏人口の対数，横軸に順位の対数をとり，散布図を示すと，その組み合わせが右下がり直線上に配置．</li>
 </ul></li>
@@ -1722,7 +1722,7 @@ Technologies</a>参照）．</li>
 <tr class="even">
 <td align="left">人口密度</td>
 <td align="left">1000人/㎢以上</td>
-<td align="left">740人/㎢以上</td>
+<td align="left">740人/0.74㎢以上</td>
 </tr>
 <tr class="odd">
 <td align="left">総人口</td>
@@ -1748,7 +1748,7 @@ Technologies</a>参照）．</li>
 <div id="結節地域の作成" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> 結節地域の作成</h2>
 <ul>
-<li>人口密度740人/㎢以上の連続するセルの結節地域を作成した上で，総人口が7400人以上になる都市を作成．</li>
+<li>人口密度0.74㎢あたり740人以上の連続するセルの結節地域を作成した上で，総人口が7400人以上になる都市を作成．</li>
 </ul>
 <p><strong>［1］</strong>
 H3セル内の人口（<code>population</code>）が<code>740</code>人以上を抽出．</p>
@@ -1848,8 +1848,8 @@ H3セル内の人口（<code>population</code>）が<code>740</code>人以上を
 
     <script>
 
-      function styleCell_vb92m5aq78rvbjo2z4s9(i, j, css_id) {
-          var table = document.getElementById("tinytable_vb92m5aq78rvbjo2z4s9");
+      function styleCell_fg96qaiaa43jep75oosn(i, j, css_id) {
+          var table = document.getElementById("tinytable_fg96qaiaa43jep75oosn");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -1859,7 +1859,7 @@ H3セル内の人口（<code>population</code>）が<code>740</code>人以上を
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_vb92m5aq78rvbjo2z4s9');
+        var table = document.getElementById('tinytable_fg96qaiaa43jep75oosn');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -1867,8 +1867,8 @@ H3セル内の人口（<code>population</code>）が<code>740</code>人以上を
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_vb92m5aq78rvbjo2z4s9(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_vb92m5aq78rvbjo2z4s9");
+      function spanCell_fg96qaiaa43jep75oosn(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_fg96qaiaa43jep75oosn");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -1898,16 +1898,16 @@ H3セル内の人口（<code>population</code>）が<code>740</code>人以上を
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_tszsygiahkeq6fz0yq7d',}, 
-          { positions: [ { i: 0, j: 1 }, { i: 0, j: 2 }, { i: 0, j: 3 }, { i: 0, j: 4 }, { i: 0, j: 5 },  ], css_id: 'tinytable_css_p6dukacqpj86kno9em78',}, 
-          { positions: [ { i: 1, j: 1 }, { i: 1, j: 2 }, { i: 1, j: 3 }, { i: 1, j: 4 }, { i: 1, j: 5 },  ], css_id: 'tinytable_css_b23ljvc1rs29milzqe2w',}, 
-          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_9buv420gzp4we27lab1j',}, 
+          { positions: [ { i: 0, j: 1 }, { i: 0, j: 2 }, { i: 0, j: 3 }, { i: 0, j: 4 }, { i: 0, j: 5 },  ], css_id: 'tinytable_css_xrvhgwx7ikr0aq1zk7rt',}, 
+          { positions: [ { i: 1, j: 1 }, { i: 1, j: 2 }, { i: 1, j: 3 }, { i: 1, j: 4 }, { i: 1, j: 5 },  ], css_id: 'tinytable_css_u1xtwzj7c73byzpa4nvh',}, 
+          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_nc581mg2qu2t2p78h0hu',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_eskbruwte46qxj2pmb75',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_vb92m5aq78rvbjo2z4s9(cell.i, cell.j, group.css_id);
+                  styleCell_fg96qaiaa43jep75oosn(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1915,13 +1915,13 @@ H3セル内の人口（<code>population</code>）が<code>740</code>人以上を
 
     <style>
 
-.table td.tinytable_css_tszsygiahkeq6fz0yq7d, .table th.tinytable_css_tszsygiahkeq6fz0yq7d { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
-.table td.tinytable_css_p6dukacqpj86kno9em78, .table th.tinytable_css_p6dukacqpj86kno9em78 { text-align: right; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
-.table td.tinytable_css_b23ljvc1rs29milzqe2w, .table th.tinytable_css_b23ljvc1rs29milzqe2w { text-align: right; border-bottom: solid #d3d8dc 0.1em; }
-.table td.tinytable_css_9buv420gzp4we27lab1j, .table th.tinytable_css_9buv420gzp4we27lab1j { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+.table td.tinytable_css_xrvhgwx7ikr0aq1zk7rt, .table th.tinytable_css_xrvhgwx7ikr0aq1zk7rt { text-align: right; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+.table td.tinytable_css_u1xtwzj7c73byzpa4nvh, .table th.tinytable_css_u1xtwzj7c73byzpa4nvh { text-align: right; border-bottom: solid #d3d8dc 0.1em; }
+.table td.tinytable_css_nc581mg2qu2t2p78h0hu, .table th.tinytable_css_nc581mg2qu2t2p78h0hu { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+.table td.tinytable_css_eskbruwte46qxj2pmb75, .table th.tinytable_css_eskbruwte46qxj2pmb75 { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
 </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_vb92m5aq78rvbjo2z4s9" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_fg96qaiaa43jep75oosn" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
         <caption>記述統計量</caption>
               <tr>
@@ -1953,7 +1953,7 @@ H3セル内の人口（<code>population</code>）が<code>740</code>人以上を
 都市人口分布の可視化</h2>
 <p><strong>［8］</strong>都市人口分布を可視する．</p>
 <ul>
-<li><a id="ref-mori2025" href="#mori2025">森</a>では都市の条件を満たさない地域で，人口密度が1㎢あたり100人以上のところをグレーで，残りの，より人口密度が低い地域は白色で表現．
+<li><a id="ref-mori2025" href="#mori2025">森</a>では都市の条件を満たさない地域で，人口密度が1㎢あたり100人以上のところをグレーで，残りの，より人口密度が低い地域は白で表現．
 <ul>
 <li>本ウェブサイトでは，人口密度が0.74㎢あたり74人以上を抽出．オブジェクトを<code>hexagons_g</code>とし，H3セルをグレー（<code>gray</code>）で表現．</li>
 </ul></li>
@@ -1978,7 +1978,7 @@ H3セル内の人口（<code>population</code>）が<code>740</code>人以上を
 <span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a><span class="co">#総人口の目盛りを指数表記</span></span>
 <span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a>my_breaks <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span><span class="sc">^</span><span class="dv">2</span>, <span class="dv">10</span><span class="sc">^</span><span class="dv">3</span>, <span class="dv">10</span><span class="sc">^</span><span class="dv">4</span>, <span class="dv">10</span><span class="sc">^</span><span class="dv">5</span>, <span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, <span class="dv">10</span><span class="sc">^</span><span class="dv">7</span>)</span></code></pre></div>
 <ul>
-<li><code>trans=&quot;log&quot;</code>により，総人口を<a href="https://ja.wikipedia.org/wiki/%E8%87%AA%E7%84%B6%E5%AF%BE%E6%95%B0"><strong>自然対数</strong></a>に変換</li>
+<li><code>trans=&quot;log&quot;</code>により，総人口を<a href="https://ja.wikipedia.org/wiki/%E8%87%AA%E7%84%B6%E5%AF%BE%E6%95%B0"><strong>自然対数</strong></a>に変換．</li>
 </ul>
 <p><strong>可視化</strong></p>
 <ul>
