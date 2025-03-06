@@ -32,6 +32,8 @@
         <A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/hexbin-map-visualization.html">六角形マップによる人口密度の可視化</A>
          <BR>&emsp; <font  face="Georgia">2.6</font>　
         <A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/elevation-slope-visualization.html">標高・傾斜度メッシュデータの可視化</A>
+        <BR>&emsp; <font  face="Georgia">2.7</font>　
+        <A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/rank-size-visualization.html">都市人口とランク・サイズ分布の可視化</A>
       </ul>
 <ul><font face="Georgia">3.</font>　<A href="https://shinichiro-iwata.github.io/geospatial-data-visualization/census-block-data-visualization.html">
   小地域統計による人口の可視化</A>
