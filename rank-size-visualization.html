@@ -1590,7 +1590,7 @@ background-color: #1e4294; color: white; }</style>
 <li><a href="https://ja.wikipedia.org/wiki/%E9%A0%86%E4%BD%8D%E3%83%BB%E8%A6%8F%E6%A8%A1%E6%B3%95%E5%89%87">ランク・サイズルール</a>：<a href="https://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%83%E3%83%97%E3%81%AE%E6%B3%95%E5%89%87">ジップの法則</a>の一例．n番目に出現したある都市圏の人口が，1位の都市圏の人口の1/n倍になるという法則．縦軸に都市圏人口の対数，横軸に順位の対数をとり，散布図を示すと，その組み合わせが右下がり直線上に配置．</li>
 </ul></li>
 </ul>
-<p><strong>パッケージ</strong>：<code>sf</code>，<code>tidyverse</code>，<code>igraph</code>，<code>modelsummary</code>，<code>scales</code>，<code>viridis</code>，<code>purrr</code></p>
+<p><strong>パッケージ</strong>：<code>sf</code>，<code>tidyverse</code>，<code>igraph</code>，<code>modelsummary</code>，<code>scales</code>，<code>viridis</code></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a></span>
@@ -1846,8 +1846,8 @@ H3セル内の人口（<code>population</code>）が<code>740</code>人以上を
 
     <script>
 
-      function styleCell_tyq6ndagnmp3k3livyw3(i, j, css_id) {
-          var table = document.getElementById("tinytable_tyq6ndagnmp3k3livyw3");
+      function styleCell_9gqcfsoqvlzmk08zq3ya(i, j, css_id) {
+          var table = document.getElementById("tinytable_9gqcfsoqvlzmk08zq3ya");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -1857,7 +1857,7 @@ H3セル内の人口（<code>population</code>）が<code>740</code>人以上を
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_tyq6ndagnmp3k3livyw3');
+        var table = document.getElementById('tinytable_9gqcfsoqvlzmk08zq3ya');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -1865,8 +1865,8 @@ H3セル内の人口（<code>population</code>）が<code>740</code>人以上を
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_tyq6ndagnmp3k3livyw3(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_tyq6ndagnmp3k3livyw3");
+      function spanCell_9gqcfsoqvlzmk08zq3ya(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_9gqcfsoqvlzmk08zq3ya");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -1896,16 +1896,16 @@ H3セル内の人口（<code>population</code>）が<code>740</code>人以上を
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_ynr7hz1u5zeottg61kyf',}, 
-          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_p0au0ifq90l7h0eeceyw',}, 
-          { positions: [ { i: 0, j: 1 }, { i: 0, j: 2 }, { i: 0, j: 3 }, { i: 0, j: 4 }, { i: 0, j: 5 },  ], css_id: 'tinytable_css_hnetv3ua0y9aw9hytnkm',}, 
-          { positions: [ { i: 1, j: 1 }, { i: 1, j: 2 }, { i: 1, j: 3 }, { i: 1, j: 4 }, { i: 1, j: 5 },  ], css_id: 'tinytable_css_dmxpe6fcg8pveuw1vuoz',}, 
+          { positions: [ { i: 0, j: 1 }, { i: 0, j: 2 }, { i: 0, j: 3 }, { i: 0, j: 4 }, { i: 0, j: 5 },  ], css_id: 'tinytable_css_jz1x4aynhg7ofsznpqrl',}, 
+          { positions: [ { i: 1, j: 1 }, { i: 1, j: 2 }, { i: 1, j: 3 }, { i: 1, j: 4 }, { i: 1, j: 5 },  ], css_id: 'tinytable_css_awdd2drsu0pf2q29k2g5',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_80paqlo49h391bxltfvl',}, 
+          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_1tkqyktvk64rq731jnzn',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_tyq6ndagnmp3k3livyw3(cell.i, cell.j, group.css_id);
+                  styleCell_9gqcfsoqvlzmk08zq3ya(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1913,13 +1913,13 @@ H3セル内の人口（<code>population</code>）が<code>740</code>人以上を
 
     <style>
 
-.table td.tinytable_css_ynr7hz1u5zeottg61kyf, .table th.tinytable_css_ynr7hz1u5zeottg61kyf { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
-.table td.tinytable_css_p0au0ifq90l7h0eeceyw, .table th.tinytable_css_p0au0ifq90l7h0eeceyw { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-.table td.tinytable_css_hnetv3ua0y9aw9hytnkm, .table th.tinytable_css_hnetv3ua0y9aw9hytnkm { text-align: right; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
-.table td.tinytable_css_dmxpe6fcg8pveuw1vuoz, .table th.tinytable_css_dmxpe6fcg8pveuw1vuoz { text-align: right; border-bottom: solid #d3d8dc 0.1em; }
+.table td.tinytable_css_jz1x4aynhg7ofsznpqrl, .table th.tinytable_css_jz1x4aynhg7ofsznpqrl { text-align: right; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+.table td.tinytable_css_awdd2drsu0pf2q29k2g5, .table th.tinytable_css_awdd2drsu0pf2q29k2g5 { text-align: right; border-bottom: solid #d3d8dc 0.1em; }
+.table td.tinytable_css_80paqlo49h391bxltfvl, .table th.tinytable_css_80paqlo49h391bxltfvl { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+.table td.tinytable_css_1tkqyktvk64rq731jnzn, .table th.tinytable_css_1tkqyktvk64rq731jnzn { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
 </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_tyq6ndagnmp3k3livyw3" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_9gqcfsoqvlzmk08zq3ya" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
         <caption>記述統計量</caption>
               <tr>
