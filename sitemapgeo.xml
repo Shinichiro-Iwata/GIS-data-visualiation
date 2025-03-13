@@ -89,6 +89,10 @@
     <priority>0.8</priority>
   </url>
    <url>
+    <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/3D-visualization.html/loc>
+    <priority>0.8</priority>
+  </url>
+   <url>
     <loc>https://shinichiro-iwata.github.io/geospatial-data-visualization/open-data-visualization.html</loc>
     <priority>0.8</priority>
   </url>
