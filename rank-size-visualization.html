@@ -1553,7 +1553,7 @@ border-radius: 0px;
 
 <h1 class="title toc-ignore">都市人口とランク・サイズ分布の可視化</h1>
 <h4 class="author"><i class="fa-solid fa-user"></i>　<a href="https://shinichiro-iwata.github.io/">岩田真一郎</a>（<i class="fa-solid fa-building-columns"></i>　<a href="https://www.econ.kanagawa-u.ac.jp/">神奈川大学経済学部</a>）</h4>
-<h4 class="date">2024-03-06作成，2025-03-08改定</h4>
+<h4 class="date">2024-03-06作成，2025-03-14改定</h4>
 
 </div>
 
@@ -1811,7 +1811,7 @@ H3セル内の人口（<code>population</code>）が<code>740</code>人以上を
 <h2><span class="header-section-number">3.3</span> 都市の作成</h2>
 <p><strong>［6］</strong>都市を作成する．</p>
 <ul>
-<li>各地域（<code>city_id</code>）毎に総人口（`total_pop’）を計算．
+<li>各地域（<code>city_id</code>）毎に総人口（<code>total_pop</code>）を計算．
 <ul>
 <li><code>hexagons_c</code>オブジェクトに格納．</li>
 </ul></li>
@@ -1846,8 +1846,8 @@ H3セル内の人口（<code>population</code>）が<code>740</code>人以上を
 
     <script>
 
-      function styleCell_9puc3kwc3v0xjtpt5qa2(i, j, css_id) {
-          var table = document.getElementById("tinytable_9puc3kwc3v0xjtpt5qa2");
+      function styleCell_cadgccq7pjdhzakaq33k(i, j, css_id) {
+          var table = document.getElementById("tinytable_cadgccq7pjdhzakaq33k");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -1857,7 +1857,7 @@ H3セル内の人口（<code>population</code>）が<code>740</code>人以上を
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_9puc3kwc3v0xjtpt5qa2');
+        var table = document.getElementById('tinytable_cadgccq7pjdhzakaq33k');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -1865,8 +1865,8 @@ H3セル内の人口（<code>population</code>）が<code>740</code>人以上を
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_9puc3kwc3v0xjtpt5qa2(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_9puc3kwc3v0xjtpt5qa2");
+      function spanCell_cadgccq7pjdhzakaq33k(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_cadgccq7pjdhzakaq33k");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -1896,16 +1896,16 @@ H3セル内の人口（<code>population</code>）が<code>740</code>人以上を
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_q2qciifqr3vqei6vzua4',}, 
-          { positions: [ { i: 1, j: 1 }, { i: 1, j: 2 }, { i: 1, j: 3 }, { i: 1, j: 4 }, { i: 1, j: 5 },  ], css_id: 'tinytable_css_knwlzprhcmpfek8rwbhv',}, 
-          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_h4qhmqhng8l72q02o5rw',}, 
-          { positions: [ { i: 0, j: 1 }, { i: 0, j: 2 }, { i: 0, j: 3 }, { i: 0, j: 4 }, { i: 0, j: 5 },  ], css_id: 'tinytable_css_2x8gcgkqcghof9bfo4ym',}, 
+          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_s64qsm9ffig6u2jfo0l4',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_c49vfq9hj0ehc8ah1iyr',}, 
+          { positions: [ { i: 1, j: 1 }, { i: 1, j: 2 }, { i: 1, j: 3 }, { i: 1, j: 4 }, { i: 1, j: 5 },  ], css_id: 'tinytable_css_4wnvs0nxanulhajp9kg5',}, 
+          { positions: [ { i: 0, j: 1 }, { i: 0, j: 2 }, { i: 0, j: 3 }, { i: 0, j: 4 }, { i: 0, j: 5 },  ], css_id: 'tinytable_css_1dof1rlorkgru0rpfrvh',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_9puc3kwc3v0xjtpt5qa2(cell.i, cell.j, group.css_id);
+                  styleCell_cadgccq7pjdhzakaq33k(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1913,13 +1913,13 @@ H3セル内の人口（<code>population</code>）が<code>740</code>人以上を
 
     <style>
 
-.table td.tinytable_css_q2qciifqr3vqei6vzua4, .table th.tinytable_css_q2qciifqr3vqei6vzua4 { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
-.table td.tinytable_css_knwlzprhcmpfek8rwbhv, .table th.tinytable_css_knwlzprhcmpfek8rwbhv { text-align: right; border-bottom: solid #d3d8dc 0.1em; }
-.table td.tinytable_css_h4qhmqhng8l72q02o5rw, .table th.tinytable_css_h4qhmqhng8l72q02o5rw { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-.table td.tinytable_css_2x8gcgkqcghof9bfo4ym, .table th.tinytable_css_2x8gcgkqcghof9bfo4ym { text-align: right; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+.table td.tinytable_css_s64qsm9ffig6u2jfo0l4, .table th.tinytable_css_s64qsm9ffig6u2jfo0l4 { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+.table td.tinytable_css_c49vfq9hj0ehc8ah1iyr, .table th.tinytable_css_c49vfq9hj0ehc8ah1iyr { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+.table td.tinytable_css_4wnvs0nxanulhajp9kg5, .table th.tinytable_css_4wnvs0nxanulhajp9kg5 { text-align: right; border-bottom: solid #d3d8dc 0.1em; }
+.table td.tinytable_css_1dof1rlorkgru0rpfrvh, .table th.tinytable_css_1dof1rlorkgru0rpfrvh { text-align: right; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
 </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_9puc3kwc3v0xjtpt5qa2" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_cadgccq7pjdhzakaq33k" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
         <caption>記述統計量</caption>
               <tr>
